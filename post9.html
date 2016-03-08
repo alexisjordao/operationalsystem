@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Operational Systems Blog</title>
+  <link rel="stylesheet" href="files/css.css">
+  <link rel="stylesheet" href="files/style.css">
+  </head>
+<body>
+  <div class="container">
+    <header class="masthead">
+  <h1 class="masthead-title--small">
+    <a href="http://alexisjordao.github.io/operationalsystems/">Operational systems</a>
+  </h1>
+</header>      
+<div class="content post">
+  <h1 class="post-title">Benchmarking sorting algorithms - results</h1>
+  <div class="post-date">
+    <time>7 Mar 2016</time>
+  </div>
+
+<pre>
+
+Esses são os resultados encontrados pelo programa do post anterior. Para criação dos gráficos foi utilizado o programa gnuplot (sudo apt-get install gnuplot).
+
+Informações importantes: nos gráficos o tempo de processamento será apresentado em escala de logaritmo, a cor vermelha indica o algoritmo QuickSort, a verde o BubbleSort e a azul o ShellSort. E estamos ressaltando a média de tempo de processamento (para dez processamentos) e o desvio padrão, para vetores com 1000, 10000, 25000, 50000, 100000, 200000, 300000, 400000 e 500000 entradas, no entanto, para o BubbleSort e o ShellSort na BBB utilizamos até 300000 entradas, devido a grande quantidade de tempo (~15horas) para esse vetor finalizar.
+</pre>
+
+<img src="files/a.png" />
+
+<pre>
+
+Esse gráfico pode ser gerado utilizando os seguintes comandos no terminal: (para os demais gráficos o mesmo script foi usado, alterando apenas os arquivos de dados).
+
+gnuplot
+set title "Function Time - BBB"
+set xlabel "Vector"
+set ylabel "Time of processing"
+set grid
+set logscale y 2
+set terminal png
+set output 'functiontime.png'
+plot 'timeqs.dat', 'timebb.dat', 'timess.dat'
+plot 'timeqs.dat' using 1:2:($2-$3):($2+$3) with errorbars, 'timebb.dat' using 1:2:($2-$3):($2+$3) with yerrorbars, 'timess.dat' using 1:2:($2-$3):($2+$3) with yerrorbars
+gnuplot> 
+
+Nota: Para os gráficos seguintes iremos usar o mesmo script disponibilizado acima.
+
+Para a função clock, temos o seguinte resultado:
+</pre>
+
+
+<img src="files/b.png" />
+
+
+<pre>
+
+
+Agora, os resultados usando com um computador com a seguinte configuração:
+
+/  Model Name:        MacBook Air
+  Processor Name:        Intel Core i5
+  Processor Speed:        1.4 GHz
+  Number of Processors:        1
+  Total Number of Cores:        2
+  L2 Cache (per Core):        256 KB
+  L3 Cache:        3 MB
+/  Memory:        8 GB
+   Type:        DDR3
+   Speed:        1600 MHz
+
+</pre>
+
+
+<img src="files/c.png" />
+
+<img src="files/d.png" />
+
+<pre>
+
+Avaliação da influência da arquitetura de hardware no desempenho e avaliação da influência dos parâmetros estatísticos
+  
+Podemos perceber apenas olhando os gráficos que o QuickSort foi bem mais rápido em todos os testes, enquanto que o BubbleSort foi o algoritmo que demorou mais tempo para ser executado, também notamos uma grande diferença entre o tempo de processamento dos algoritmos entre o PC e a BBB, inclusive devido ao fato do processamento do vetor de 300 mil ter demorado mais de 15 horas para ser concluído na BBB. Além das médias demonstradas no gráfico, fizemos questão de expressão o desvio padrão que se mostrou muito pequeno em todos os casos.
+
+
+</pre>
+
+</div>
+
+  </div>
+
+
+</body></html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Operational Systems Blog</title>
+  <link rel="stylesheet" href="files/css.css">
+  <link rel="stylesheet" href="files/style.css">
+  </head>
+<body>
+  <div class="container">
+    <header class="masthead">
+  <h1 class="masthead-title--small">
+    <a href="http://alexisjordao.github.io/operationalsystems/">Operational systems</a>
+  </h1>
+</header>      
+<div class="content post">
+  <h1 class="post-title">Time and clock functions</h1>
+  <div class="post-date">
+    <time>7 Mar 2016</time>
+  </div>
+
+<pre>Função time e clock
+
+Função time
+Sintaxe:
+time_t time (time_t *variável)
+Descrição: retorna o tempo em segundos desde 00:00:00 de 1 Janeiro de 1970
+Observações: time_t é do tipo long (32 ou 64)
+Exemplo:
+time_t x = time (NULL)
+time_t *x; time (x)
+time_t x; time (&x)
+
+Função clock
+Sintaxe:
+clock_t clock (void)
+Descrição:
+Retorna o tempo em clock ticks desde que o programa foi inicializado
+Observação:
+clock_t pode ser tratado como um ponto flutuante.
+A função clock considera apenas tempo de CPU, I/0 são desconsiderados.
+
+Referências
+Disciplina Laboratório de Projeto de Sistemas Operacionais
+</pre>
+
+</div>
+
+  </div>
+
+
+</body></html>

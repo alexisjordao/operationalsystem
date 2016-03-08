@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Operational Systems Blog</title>
+  <link rel="stylesheet" href="files/css.css">
+  <link rel="stylesheet" href="files/style.css">
+  </head>
+<body>
+  <div class="container">
+    <header class="masthead">
+  <h1 class="masthead-title--small">
+    <a href="http://alexisjordao.github.io/operationalsystems/">Operational systems</a>
+  </h1>
+</header>      
+<div class="content post">
+  <h1 class="post-title">Accessing network via USB</h1>
+  <div class="post-date">
+    <time>7 Mar 2016</time>
+  </div>
+
+<pre>
+
+
+Identificando as interfaces de rede (BBB) usando o comando ifconfig
+Identificando as interfaces de rede (máquina host) a interface eth0 é a Internet e a interface eth1 é a BBB.
+
+Note que se você estiver usando uma conexão WiFi, irá aparecer wlan0 no lugar de eth0.
+
+Encaminhando requisições de rede [BBB → Host]
+Host
+sudo su
+iptables --table nat --append POSTROUTING --out-interface eth0 -j MASQUERADE
+iptables --append FORWARD --in-interface eth1 -j ACCEPT
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+Encaminhando requisições de rede [BBB → Host]
+BBB
+#realizar os comandos como root
+route add default gw 192.168.7.1
+echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+/etc/init.d/networking restart
+
+Atualizar os pacotes
+apt-get update
+apt-get upgrade
+
+Referências
+Disciplina Laboratório de Projeto de Sistemas Operacionais
+</pre>
+
+
+</div>
+
+  </div>
+
+
+</body></html>

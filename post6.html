@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Operational Systems Blog</title>
+  <link rel="stylesheet" href="files/css.css">
+  <link rel="stylesheet" href="files/style.css">
+  </head>
+<body>
+  <div class="container">
+    <header class="masthead">
+  <h1 class="masthead-title--small">
+    <a href="http://alexisjordao.github.io/operationalsystems/">Operational systems</a>
+  </h1>
+</header>      
+<div class="content post">
+  <h1 class="post-title">Cross-compiling on BBB</h1>
+  <div class="post-date">
+    <time>7 Mar 2016</time>
+  </div>
+
+<pre>
+
+Passos para compilação e execução do arquivo fonte:
+[HOST]
+a. Entrar no mesmo diretório onde está o arquivo “nomedoarquivo.cpp”
+b. Download do arquivo “compila.sh” - https://goo.gl/OH4A6N
+chmod +x compila.sh
+./compila.sh
+
+[BBB] 
+./nomedoarquivo
+
+Compilando através do QT-Designer [Host]
+Faça o projeto no QT-Designer
+Entrar no diretório do projeto
+Download do arquivo compila.sh - https://goo.gl/rKYPeK
+chmod +x compila.sh
+./nomedoprojeto
+
+O que falta para executar o arquivo na BBB? Instalar as lib do QT na BBB:
+sudo apt-get install qt5-default
+
+Referências
+Disciplina Laboratório de Projeto de Sistemas Operacionais
+</pre>
+
+
+</div>
+
+  </div>
+
+
+</body></html>

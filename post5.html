@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Operational Systems Blog</title>
+  <link rel="stylesheet" href="files/css.css">
+  <link rel="stylesheet" href="files/style.css">
+  </head>
+<body>
+  <div class="container">
+    <header class="masthead">
+  <h1 class="masthead-title--small">
+    <a href="http://alexisjordao.github.io/operationalsystems/">Operational systems</a>
+  </h1>
+</header>      
+<div class="content post">
+  <h1 class="post-title">Installing additional tools and updating system</h1>
+  <div class="post-date">
+    <time>7 Mar 2016</time>
+  </div>
+
+<pre>
+
+Conceitos básicos
+● IDE (Integrated Development Environment)
+○ Ambiente de desenvolvimento (e.g eclipse)
+● Library (lib)
+○ Código que pode ser chamado/linked a partir de um programa (DLL ou estático)
+● API (Application Programming Interface)
+○ Interface de acesso uma biblioteca (uma lib pode ser atualizada e a API continuar sendo a mesma)
+● SDK (Software Development Kit)
+○ Conjunto de programas integrados para o desenvolvimento. Pode conter libs, IDE, arquivos de ajuda (e.g SDK Java, TI)
+● Tookit
+○ Biblioteca associada a ferramentas de desenvolvimento, porém, distribuida atraveś de plugins
+● Framework
+○ Plataforma de desenvolvimento (amplo)
+
+SDK Texas Instruments
+● Download do SDK
+○ SDK Texas Instruments (~2.2Gb) - http://goo.gl/q8zaor
+○ chmod +x nomedoarquivobaixado
+○ ./nomedoarquivobaixado
+● Instalação: next, next, next....
+
+
+Instalar Qt Designer
+○ http://www.qt.io/download-open-source/
+○ Dica: fazer o download da versão offline
+■ Linux 32bits: http://download.qt.io/official_releases/qt/5.5/5.5.1/qt-opensource-linux-x86-5.5.1.run
+■ Linux 64bits: http://download.qt.io/official_releases/qt/5.5/5.5.1/qt-opensource-linux-x64-5.5.1.run
+
+Instalar
+○ chmod +x arquivobaixado
+○ ./arquivobaixado
+
+Atualização do Sistema [Debian Jessie]
+Download 
+wget https://rcn-ee.com/rootfs/2016-02-11/elinux/debian-8.3-console-armhf-2016-02-11.tar.xz
+Unpack
+tar xf debian-8.3-console-armhf-2016-02-11.tar.xz
+cd debian-8.3-console-armhf-2016-02-11
+Identificando o microSD
+sudo ./setup_sdcard.sh --probe-mmc
+sudo ./setup_sdcard.sh --mmc /dev/mmcblk0 --dtb beaglebone
+
+Acessando o sistema
+ssh debian@192.168.7.2
+Senha: temppwd
+
+Instalando alguns pacotes [Máquina Host]
+sudo apt-get install sshpass
+
+Referências
+Disciplina Laboratório de Projeto de Sistemas Operacionais
+
+</pre>
+
+
+</div>
+
+  </div>
+
+
+</body></html>

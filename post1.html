@@ -11,129 +11,47 @@
   <div class="container">
     <header class="masthead">
   <h1 class="masthead-title--small">
-    <a href="https://kiko.gfjaru.com/">Kiko</a>
+    <a href="http://alexisjordao.github.io/operationalsystems/">Operational systems</a>
   </h1>
 </header>      
 <div class="content post">
-  <h1 class="post-title">Example content</h1>
+  <h1 class="post-title">Getting started with BeagleBone Black ­(BBB)</h1>
   <div class="post-date">
-    <time>09 Aug 2015</time>
+    <time>6 Mar 2016</time>
   </div>
-  <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing 
-elit. Nulla ullamcorper est in imperdiet molestie. Curabitur aliquet sem
- in ante venenatis.</p>
 
 
-<p>Morbi ultrices libero imperdiet <a href="#">lectus</a> dignissim, sit
- amet bibendum nisl consectetur. Morbi erat purus, pretium at ligula 
-tincidunt, faucibus commodo sem. Etiam vel porttitor est, vitae maximus 
-ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
- sapien turpis, cursus non porta ac.</p>
+<p>The BeagleBoard is a low-power open-source hardware single-board computer produced by Texas Instruments in association with Digi-Key and Newark element14. The BeagleBoard was also designed with open source softwaredevelopment in mind, and as a way of demonstrating the Texas Instrument's OMAP3530 system-on-a-chip.[8] The board was developed by a small team of engineers as an educational board that could be used in colleges around the world to teach open source hardware and software capabilities. It is also sold to the public under the Creative Commons share-alike license. The board was designed using Cadence OrCAD for schematics and Cadence Allegro for PCB manufacturing; no simulation software was used.</p>
 
-<h2>Lorem</h2>
-
-<p>Quisque sodales euismod nibh, gravida venenatis nibh dignissim eget. Morbi gravida enim vel lectus aliquet aliquet.</p>
-
-<h3>Ipsum</h3>
-
-<p>Nunc nec aliquam tellus. Etiam faucibus magna nibh, ut fermentum 
-velit consectetur id. Nullam vehicula iaculis tortor, in cursus enim 
-auctor vitae. Duis semper pulvinar justo, at vestibulum dolor. Cras 
-fermentum nibh quis nisl imperdiet ornare. Sed nisi nunc, dictum sit 
-amet gravida in, finibus rhoncus orci. Donec scelerisque commodo turpis 
-ac venenatis.</p>
-
-<blockquote><p>Nam vitae commodo ex. Nunc vel tellus leo.</p></blockquote>
-
-<h2>Dugem</h2>
-
-<p>Nullam vehicula iaculis tortor, in cursus enim auctor vitae. Duis 
-semper pulvinar justo, at vestibulum dolor. Cras fermentum nibh quis 
-nisl imperdiet ornare. Sed nisi nunc, dictum sit amet gravida in, 
-finibus rhoncus orci. Donec scelerisque commodo turpis ac venenatis.</p>
-
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">trigger_alert</span><span class="p">(){</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">"Lorem Ipsum dolor sit amet"</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="nx">trigger_alert</span><span class="p">();</span></code></pre></div>
-
-
-<h3>Golem</h3>
-
-<p>Quisque sodales euismod nibh, gravida venenatis nibh dignissim eget. Morbi gravida enim vel lectus aliquet aliquet.</p>
-
-<ul>
-<li>Praesent commodo cursus magna.</li>
-<li>Donec id elit non mi porta gravida at eget metus.</li>
-<li>Nulla vitae elit libero, a pharetra augue.</li>
-</ul>
-
-
-<p>Cras fermentum nibh quis nisl imperdiet ornare. Sed nisi nunc, dictum
- sit amet gravida in, finibus rhoncus orci. Donec scelerisque commodo 
-turpis ac venenatis.</p>
-
+<p>Cuidados / Melhores Práticas:</p>
 <ol>
-<li>Vestibulum id ligula porta felis euismod semper.</li>
-<li>Cum sociis natoque penatibus.</li>
-<li>Maecenas sed diam eget risus.</li>
+  <li> Não posicionar a BBB em superfícies metálicas; </li>
+  <li> Desligar com o comando adequado ou usar os botões. NUNCA PUXAR O CABO DE FORÇA OU O USB POWER; </li>
+  <li> Segurar o power button por 8s para um Hard Power Down (HPD); </li>
+  <li> GPIO são 3.3v tolerantes; </li>
+  <li> ADC são 1.8v tolerantes; </li>
+  <li> Arduino tolera 40mA em cada pino enquanto que a BBB tolera em geral entre 4-6mA. O máximo é 8mA. </li>
 </ol>
 
+<h2>Passo 1 - Montar o kit</h2>
 
-<p>Nam ante lacus, ornare ut lacus in, aliquet gravida orci. Donec non 
-dignissim elit. Integer facilisis lorem sed porttitor elementum. Etiam a
- eleifend justo.</p>
+<img src="https://www.adafruit.com/images/970x728/703-01.jpg" />
 
-<dl>
-  <dt>HyperText Markup Language (HTML)</dt>
-  <dd>The language used to describe and define the content of a Web page</dd>
+<h2>Passo 2 - acessando a BBB </h2>
 
-  <dt>Cascading Style Sheets (CSS)</dt>
-  <dd>Used to describe the appearance of Web content</dd>
+<p>Acessando a BBB via SSH</p>
 
-  <dt>JavaScript (JS)</dt>
-  <dd>The programming language used to build advanced Web sites and applications</dd>
-</dl>
+<div class="highlight"><pre>root@192.168.7.2</pre></div>
 
 
-<p>Sed nisi nunc, dictum sit amet gravida in, finibus rhoncus orci. Donec scelerisque commodo turpis ac venenatis.</p>
+<p>Desligando a BBB</p>
+<div class="highlight"><pre>sudo shutdown -h now</pre></div> 
 
-<p><img src="files/800x400.png" title="Large example image" alt="Large example image">
-<img src="files/400x200.png" title="Medium example image" alt="Medium example image">
-<img src="files/200x200.png" title="Small example image" alt="Small example image"></p>
-
-<p>Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Rank</th>
-      <th>Score</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Cookie</td>
-      <td>#69</td>
-      <td>169</td>
-    </tr>
-    <tr>
-      <td>Buther</td>
-      <td>#70</td>
-      <td>169</td>
-    </tr>
-    <tr>
-      <td>Stuart</td>
-      <td>#71</td>
-      <td>168</td>
-    </tr>
-  </tbody>
-</table>
-
-
-<p>Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+<p>Referências</p>
+<ul>
+  <li> <a href="https://en.wikipedia.org/wiki/BeagleBoard" target="_blank"> https://en.wikipedia.org/wiki/BeagleBoard </a></li>
+  <li> Disciplina Laboratório de Projeto de Sistemas Operacionais </li>
+</ul>
 
 </div>
 

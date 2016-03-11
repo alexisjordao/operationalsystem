@@ -21,38 +21,38 @@
   </div>
 
 
-<p>The BeagleBoard is a low-power open-source hardware single-board computer produced by Texas Instruments in association with Digi-Key and Newark element14. The BeagleBoard was also designed with open source softwaredevelopment in mind, and as a way of demonstrating the Texas Instrument's OMAP3530 system-on-a-chip.[8] The board was developed by a small team of engineers as an educational board that could be used in colleges around the world to teach open source hardware and software capabilities. It is also sold to the public under the Creative Commons share-alike license. The board was designed using Cadence OrCAD for schematics and Cadence Allegro for PCB manufacturing; no simulation software was used.</p>
+<p>The BeagleBoard is a low-power, open-source hardware, and single-board computer produced by Texas Instruments in association with Digi-Key and Newark element14. It was also designed with open source software development in mind, and as a way of demonstrating the Texas Instrument's OMAP3530 system-on-a-chip. The board was developed by a small team of engineers as an educational board that could be used at universities around the world in order to teach open source hardware and software capabilities. It is also sold to the public under Creative Commons share-alike license. The board was designed using Cadence OrCAD for schematics and Cadence Allegro for PCB manufacturing; no simulation software was used.</p>
 
-<p>Cuidados / Melhores Práticas:</p>
+<p><b>Taking care of / Best practices:</b></p>
 <ol>
-  <li> Não posicionar a BBB em superfícies metálicas; </li>
-  <li> Desligar com o comando adequado ou usar os botões. NUNCA PUXAR O CABO DE FORÇA OU O USB POWER; </li>
-  <li> Segurar o power button por 8s para um Hard Power Down (HPD); </li>
-  <li> GPIO são 3.3v tolerantes; </li>
-  <li> ADC são 1.8v tolerantes; </li>
-  <li> Arduino tolera 40mA em cada pino enquanto que a BBB tolera em geral entre 4-6mA. O máximo é 8mA. </li>
+  <li> Don't place BBB on top of metalic surfaces; </li>
+  <li> Halt with the appropriate command or use the buttons. NEVER PULL THE USB OR POWER CABLES OUT; </li>
+  <li> Press and hold the power button for 8s to perform a Hard Power Down (HPD); </li>
+  <li> GPIO are 3.3v tolerant; </li>
+  <li> ADC are 1.8v tolerant; </li>
+  <li> Arduino supports 40mA on each input while BBB supports somewhere between 4-6mA. The maximum allowed is 8mA. </li>
 </ol>
 
-<h2>Passo 1 - Montar o kit</h2>
+<h2>Step 1 - Put the parts together</h2>
 
 <img src="files/beaglebone.jpg" />
 
 <p style="font-size:70%;"><i>Source: https://www.adafruit.com/</i></p>
 
-<h2>Passo 2 - acessando a BBB </h2>
+<h2>Step 2 - Connect BBB </h2>
 
-<p>Acessando a BBB via SSH</p>
+<p>Logging into BBB via SSH</p>
 
 <div class="highlight"><pre>root@192.168.7.2</pre></div>
 
 
-<p>Desligando a BBB</p>
+<p>Halting BBB</p>
 <div class="highlight"><pre>sudo shutdown -h now</pre></div> 
 
-<p>Referências</p>
+<p>References</p>
 <ul>
   <li> <a href="https://en.wikipedia.org/wiki/BeagleBoard" target="_blank"> https://en.wikipedia.org/wiki/BeagleBoard </a></li>
-  <li> Disciplina Laboratório de Projeto de Sistemas Operacionais </li>
+  <li> Operational Systems Class at UFRN </li>
 </ul>
 
 </div>

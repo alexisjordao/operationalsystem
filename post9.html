@@ -20,19 +20,19 @@
     <time>7 Mar 2016</time>
   </div>
 
-<pre>
 
-Esses são os resultados encontrados pelo programa do post anterior. Para criação dos gráficos foi utilizado o programa gnuplot (sudo apt-get install gnuplot).
+<p>The following results were found using the code shown on the last post. We used gnuplot (<i>sudo apt-get install gnuplot</i>) to plot the data. </p>
 
-Informações importantes: nos gráficos o tempo de processamento será apresentado em escala de logaritmo, a cor vermelha indica o algoritmo QuickSort, a verde o BubbleSort e a azul o ShellSort. E estamos ressaltando a média de tempo de processamento (para dez processamentos) e o desvio padrão, para vetores com 1000, 10000, 25000, 50000, 100000, 200000, 300000, 400000 e 500000 entradas, no entanto, para o BubbleSort e o ShellSort na BBB utilizamos até 300000 entradas, devido a grande quantidade de tempo (~15horas) para esse vetor finalizar.
-</pre>
+<p>Remarkable information: the amount of time spent on the algorithms will be plotted using a logarithmic scale. <span style="color:red;font-weight:500;">Red</span> means QuickSort, <span style="color:green;font-weight:500;">Green</span> represents BubbleSort, and finally <span style="color:blue;font-weight:500;">Blue</span> will be ShellSort. We are presenting the average of amount of time spent (for 10 different input sizes, which are 1 000, 10 000, 25 000, 50 000, 100 000, 200 000, 300 000, 400 000 and 500 000). However, due to the excessive time required to complete BubbleSort for larger input sizes (15 hours or more), we limited the vector at 300 000 elements on BeagleBone. </p>
+
 
 <img src="files/a.png" />
 
+
+
+<p>This graph (and others which will appear below) may be generated using the following commands on the terminal:</p>
+
 <pre>
-
-Esse gráfico pode ser gerado utilizando os seguintes comandos no terminal: (para os demais gráficos o mesmo script foi usado, alterando apenas os arquivos de dados).
-
 gnuplot
 set title "Function Time - BBB"
 set xlabel "Vector"
@@ -44,32 +44,29 @@ set output 'functiontime.png'
 plot 'timeqs.dat', 'timebb.dat', 'timess.dat'
 plot 'timeqs.dat' using 1:2:($2-$3):($2+$3) with errorbars, 'timebb.dat' using 1:2:($2-$3):($2+$3) with yerrorbars, 'timess.dat' using 1:2:($2-$3):($2+$3) with yerrorbars
 gnuplot> 
-
-Nota: Para os gráficos seguintes iremos usar o mesmo script disponibilizado acima.
-
-Para a função clock, temos o seguinte resultado:
 </pre>
+
+<p>For the clock funtions (counts up the number of clock cycles used by CPU), we got the following results:</p>
 
 
 <img src="files/b.png" />
 
 
-<pre>
-
-
-Agora, os resultados usando com um computador com a seguinte configuração:
-
-/  Model Name:        MacBook Air
-  Processor Name:        Intel Core i5
-  Processor Speed:        1.4 GHz
-  Number of Processors:        1
-  Total Number of Cores:        2
-  L2 Cache (per Core):        256 KB
-  L3 Cache:        3 MB
-/  Memory:        8 GB
-   Type:        DDR3
-   Speed:        1600 MHz
-
+<p>Now, the results obtained using a computer with the following configuration:</p>
+<ul>
+  <li>MacBook Air</li>
+  <li>Processor </li>
+  <ul style="margin-left:40px;">
+    <li>Name:               Intel Core i5</li>
+    <li>Speed:              1.4 GHz</li>
+    <li># of Cores:           2</li>
+    <li>L2 Cache (per Core):        256 KB</li>
+    <li>L3 Cache:        3 MB</li>
+  </ul></li>
+  <li>Memory<ul style="margin-left:40px;"><li>        Size: 8 GB</li>
+  <li>Type:        DDR3</li>
+  <li>Speed:        1600 MHz</li></ul></li>
+</ul>
 </pre>
 
 
@@ -77,14 +74,15 @@ Agora, os resultados usando com um computador com a seguinte configuração:
 
 <img src="files/d.png" />
 
-<pre>
 
-Avaliação da influência da arquitetura de hardware no desempenho e avaliação da influência dos parâmetros estatísticos
+
+<p><b>Conclusions on the influence of the hardware architecture on the performance</b></p>
   
-Podemos perceber apenas olhando os gráficos que o QuickSort foi bem mais rápido em todos os testes, enquanto que o BubbleSort foi o algoritmo que demorou mais tempo para ser executado, também notamos uma grande diferença entre o tempo de processamento dos algoritmos entre o PC e a BBB, inclusive devido ao fato do processamento do vetor de 300 mil ter demorado mais de 15 horas para ser concluído na BBB. Além das médias demonstradas no gráfico, fizemos questão de expressão o desvio padrão que se mostrou muito pequeno em todos os casos.
+<p>We may notice examing the graphs that QuickSort was way faster throughout all tests, while BubbleSort was definitely the slowest to be executed. We have also noticed a large difference on the amount of time spent on the computer and on BeagleBone, especially when using a vector of size 300000, which took about 15 hours to be finished on the BBB.</p>
 
+<p>Note that, on a computer, the standard deviation tends to be higher. This is probably because the CPU was required sometimes to execute toilsome tasks other than the algorithm, so in some cases we will get extraneous additional seconds.</p> 
 
-</pre>
+<p>Last but not least, using a 10 000 vector does not require just 10 times the time spent by a 1 000 vector, as we might had expected. This is because the CPU happens to get much more cache hits when a vector is small. As the cache size is limited, this effect might be weaker on very large vectors. When running BubbleSort, for instance, the more the size approaches the upper bound, 500 000, the more the curve tends to look like a quadratic curve, as opposed to a exponential curve, like in the beginning.</p>
 
 </div>
 

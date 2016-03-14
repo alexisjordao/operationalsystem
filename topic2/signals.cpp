@@ -1,14 +1,3 @@
-/*
- * Universidade Federal do Rio Grande do Norte
- * Instituto Metropole Digital
- *
- * copyright: Ivanovitch Silva
- * e-mail: ivan@imd.ufrn.br
- *
- * Tópico: tratando sinais no linux
- * Programa: IPC através da função kill
- */
- 
 #include <sys/types.h>
 #include <unistd.h>
 #include <cstdio>

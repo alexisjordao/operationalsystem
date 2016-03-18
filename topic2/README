@@ -1,0 +1,6 @@
+Passos para compilação e execução do arquivo fonte:
+
+a) Entrar no diretório "trabalhoDois"
+b) chmod +x compila.sh
+c) ./compila.sh
+d) [BBB] sudo ./trabalhoDois

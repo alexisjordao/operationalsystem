@@ -87,7 +87,7 @@ void deallocateVector(){
 
 int main(int argc, char *argv[])
 {
-  int values[] = {1000, 10000, 25000, 50000, 100000, 200000, 300000, 400000, 500000};
+  int values[] = {50000, 100000, 200000, 300000, 400000, 500000};
   clock_t clock_1, clock_2;
   time_t time_1, time_2;	
 

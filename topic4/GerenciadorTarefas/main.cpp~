@@ -48,40 +48,6 @@ vector<string> listFile(){
     return retorno;
 }
 
-int cpu()
-{
-    ifstream myfile;
-    myfile.open("/proc/stat");
-
-    string teste;
-    int cpu0, cpu1, sum;
-    float average;
-
-    myfile >> teste;
-    myfile >> cpu0;
-    sleep(10);
-    myfile >> teste;
-    myfile >> cpu1;
-
-    sum = cpu0 + cpu1;
-    average = (sum/2);
-
-    return average;
-}
-
-int memoria()
-{
-    ifstream myfile;
-    myfile.open("/proc/statm");
-
-    string teste;
-    int mem;
-
-    myfile >> mem;
-
-    return mem;
-}
-
 vector<int> listChildren(int parent)
 {
     stringstream ss;

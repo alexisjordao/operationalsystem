@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include<QApplication>
 #include<stdio.h>
-#include<string>
+#include<string.h>
 #include<vector>
 #include<iostream>
 #include<unistd.h>
@@ -23,6 +23,9 @@
 #include<cstring>
 #include<algorithm>
 #include "sys/sysinfo.h"
+#include "stdlib.h"
+#include "stdio.h"
+#include "string.h"
 using namespace std;
 
 struct sysinfo memInfo;
@@ -231,32 +234,57 @@ void MainWindow::inicializarGraficoTempoDescarga()
     tempoDescargaTimer.start(500); // Interval 0 means to refresh as fast as possible
 }
 
-/*
-int cpuDois()
-{
-    ifstream myfile;
-    myfile.open("/proc/stat");
+static unsigned long long lastTotalUser, lastTotalUserLow, lastTotalSys, lastTotalIdle;
 
-    string teste;
-    int cpu0, cpu1, sum;
-    float average;
 
-    myfile >> teste;
-    myfile >> cpu0;
-    sleep(10);
-    myfile >> teste;
-    myfile >> cpu1;
+    void init(){
+        FILE* file = fopen("/proc/stat", "r");
+        fscanf(file, "cpu %llu %llu %llu %llu", &lastTotalUser, &lastTotalUserLow,
+            &lastTotalSys, &lastTotalIdle);
+        fclose(file);
+    }
 
-    sum = cpu0 + cpu1;
-    average = (sum/2);
 
-    return average;
-}*/
+    double getCurrentValue(){
+        double percent;
+        FILE* file;
+        unsigned long long totalUser, totalUserLow, totalSys, totalIdle, total;
+
+
+        file = fopen("/proc/stat", "r");
+        fscanf(file, "cpu %llu %llu %llu %llu", &totalUser, &totalUserLow,
+            &totalSys, &totalIdle);
+        fclose(file);
+
+
+        if (totalUser < lastTotalUser || totalUserLow < lastTotalUserLow ||
+            totalSys < lastTotalSys || totalIdle < lastTotalIdle){
+            //Overflow detection. Just skip this value.
+            percent = -1.0;
+        }
+        else{
+            total = (totalUser - lastTotalUser) + (totalUserLow - lastTotalUserLow) +
+                (totalSys - lastTotalSys);
+            percent = total;
+            total += (totalIdle - lastTotalIdle);
+            percent /= total;
+            percent *= 100;
+        }
+
+
+        lastTotalUser = totalUser;
+        lastTotalUserLow = totalUserLow;
+        lastTotalSys = totalSys;
+        lastTotalIdle = totalIdle;
+
+
+        return percent;
+    }
 
 void MainWindow::atualizarGraficoCPU()
 {
     double key = QDateTime::currentDateTime().toMSecsSinceEpoch()/1000.0;
-    double value0 = qSin(key);
+    double value0 = getCurrentValue();
     double value1 = qCos(key);
 
     // add data to lines:
@@ -278,19 +306,6 @@ void MainWindow::atualizarGraficoCPU()
 
 }
 
-int memoriaDois()
-{
-    ifstream myfile;
-    myfile.open("/proc/statm");
-
-    string teste;
-    int mem;
-
-    myfile >> mem;
-
-    return mem;
-}
-
 void MainWindow::atualizarGraficoMemoria()
 {
     double key = QDateTime::currentDateTime().toMSecsSinceEpoch()/1000.0;
@@ -302,12 +317,11 @@ void MainWindow::atualizarGraficoMemoria()
     physMemUsed *= memInfo.mem_unit;
 
     long long totalPhysMem = memInfo.totalram;
-        //Multiply in next statement to avoid int overflow on right hand side...
-        totalPhysMem *= memInfo.mem_unit;
+    //Multiply in next statement to avoid int overflow on right hand side...
+    totalPhysMem *= memInfo.mem_unit;
 
    // http://stackoverflow.com/questions/63166/how-to-determine-cpu-and-memory-consumption-from-inside-a-process
 
-//double value0 = memoriaDois();
     double value0 = (double)physMemUsed/(double)totalPhysMem;
     cout<<value0<<endl;
     double value1 = qCos(key);

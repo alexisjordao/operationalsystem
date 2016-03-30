@@ -2,103 +2,103 @@
 "name" : "init",
 "children":
 [
-{"name": "init", "size": 0, "pid": 1}
+{"name": "init", "size": 100, "pid": 1}
 ,
     {
     "name" : "upstart-udev-br",
     "children":
     [
-    {"name": "upstart-udev-br", "size": 0, "pid": 270}
+    {"name": "upstart-udev-br", "size": 100, "pid": 272}
     ]
     },
     {
     "name" : "systemd-udevd",
     "children":
     [
-    {"name": "systemd-udevd", "size": 0, "pid": 278}
+    {"name": "systemd-udevd", "size": 100, "pid": 278}
     ]
     },
     {
     "name" : "upstart-socket-",
     "children":
     [
-    {"name": "upstart-socket-", "size": 0, "pid": 497}
+    {"name": "upstart-socket-", "size": 100, "pid": 476}
     ]
     },
     {
     "name" : "dbus-daemon",
     "children":
     [
-    {"name": "dbus-daemon", "size": 0, "pid": 588}
+    {"name": "dbus-daemon", "size": 100, "pid": 590}
     ]
     },
     {
     "name" : "ModemManager",
     "children":
     [
-    {"name": "ModemManager", "size": 0, "pid": 615}
+    {"name": "ModemManager", "size": 100, "pid": 617}
     ]
     },
     {
     "name" : "bluetoothd",
     "children":
     [
-    {"name": "bluetoothd", "size": 0, "pid": 616}
+    {"name": "bluetoothd", "size": 100, "pid": 618}
     ]
     },
     {
     "name" : "upstart-file-br",
     "children":
     [
-    {"name": "upstart-file-br", "size": 0, "pid": 636}
+    {"name": "upstart-file-br", "size": 100, "pid": 638}
     ]
     },
     {
     "name" : "rsyslogd",
     "children":
     [
-    {"name": "rsyslogd", "size": 0, "pid": 640}
+    {"name": "rsyslogd", "size": 100, "pid": 642}
+    ]
+    },
+    {
+    "name" : "systemd-logind",
+    "children":
+    [
+    {"name": "systemd-logind", "size": 100, "pid": 662}
     ]
     },
     {
     "name" : "avahi-daemon",
     "children":
     [
-    {"name": "avahi-daemon", "size": 0, "pid": 655}
+    {"name": "avahi-daemon", "size": 100, "pid": 665}
 ,
         {
         "name" : "avahi-daemon",
         "children":
         [
-        {"name": "avahi-daemon", "size": 0, "pid": 658}
+        {"name": "avahi-daemon", "size": 100, "pid": 669}
         ]
         }    ]
-    },
-    {
-    "name" : "systemd-logind",
-    "children":
-    [
-    {"name": "systemd-logind", "size": 0, "pid": 667}
-    ]
     },
     {
     "name" : "NetworkManager",
     "children":
     [
-    {"name": "NetworkManager", "size": 0, "pid": 674}
+    {"name": "NetworkManager", "size": 100, "pid": 756}
 ,
         {
         "name" : "dhclient",
         "children":
         [
-        {"name": "dhclient", "size": 0, "pid": 2520}
+        {"name": "dhclient", "size": 100, "pid": 2631}
         ]
         },
         {
         "name" : "dnsmasq",
         "children":
         [
-        {"name": "dnsmasq", "size": 0, "pid": 2529}
+        {"name": "dnsmasq", "size": 100, "pid": 2634}
         ]
         }    ]
     },
@@ -106,132 +106,132 @@
     "name" : "polkitd",
     "children":
     [
-    {"name": "polkitd", "size": 0, "pid": 680}
+    {"name": "polkitd", "size": 100, "pid": 802}
     ]
     },
     {
     "name" : "getty",
     "children":
     [
-    {"name": "getty", "size": 0, "pid": 838}
+    {"name": "getty", "size": 100, "pid": 836}
     ]
     },
     {
     "name" : "getty",
     "children":
     [
-    {"name": "getty", "size": 0, "pid": 842}
+    {"name": "getty", "size": 100, "pid": 840}
     ]
     },
     {
     "name" : "getty",
     "children":
     [
-    {"name": "getty", "size": 0, "pid": 848}
-    ]
-    },
-    {
-    "name" : "getty",
-    "children":
-    [
-    {"name": "getty", "size": 0, "pid": 853}
+    {"name": "getty", "size": 100, "pid": 846}
     ]
     },
     {
     "name" : "console-kit-dae",
     "children":
     [
-    {"name": "console-kit-dae", "size": 0, "pid": 855}
+    {"name": "console-kit-dae", "size": 100, "pid": 852}
     ]
     },
     {
     "name" : "getty",
     "children":
     [
-    {"name": "getty", "size": 0, "pid": 858}
+    {"name": "getty", "size": 100, "pid": 853}
+    ]
+    },
+    {
+    "name" : "getty",
+    "children":
+    [
+    {"name": "getty", "size": 100, "pid": 856}
     ]
     },
     {
     "name" : "mongod",
     "children":
     [
-    {"name": "mongod", "size": 0, "pid": 959}
+    {"name": "mongod", "size": 100, "pid": 982}
     ]
     },
     {
     "name" : "acpid",
     "children":
     [
-    {"name": "acpid", "size": 0, "pid": 985}
+    {"name": "acpid", "size": 100, "pid": 990}
     ]
     },
     {
     "name" : "irqbalance",
     "children":
     [
-    {"name": "irqbalance", "size": 0, "pid": 1009}
-    ]
-    },
-    {
-    "name" : "cron",
-    "children":
-    [
-    {"name": "cron", "size": 0, "pid": 1011}
+    {"name": "irqbalance", "size": 100, "pid": 1009}
     ]
     },
     {
     "name" : "cups-browsed",
     "children":
     [
-    {"name": "cups-browsed", "size": 0, "pid": 1012}
+    {"name": "cups-browsed", "size": 100, "pid": 1010}
+    ]
+    },
+    {
+    "name" : "cron",
+    "children":
+    [
+    {"name": "cron", "size": 100, "pid": 1016}
     ]
     },
     {
     "name" : "whoopsie",
     "children":
     [
-    {"name": "whoopsie", "size": 0, "pid": 1050}
+    {"name": "whoopsie", "size": 100, "pid": 1056}
     ]
     },
     {
     "name" : "postgres",
     "children":
     [
-    {"name": "postgres", "size": 0, "pid": 1056}
+    {"name": "postgres", "size": 100, "pid": 1060}
 ,
         {
         "name" : "postgres",
         "children":
         [
-        {"name": "postgres", "size": 0, "pid": 1064}
+        {"name": "postgres", "size": 100, "pid": 1069}
         ]
         },
         {
         "name" : "postgres",
         "children":
         [
-        {"name": "postgres", "size": 0, "pid": 1065}
+        {"name": "postgres", "size": 100, "pid": 1070}
         ]
         },
         {
         "name" : "postgres",
         "children":
         [
-        {"name": "postgres", "size": 0, "pid": 1066}
+        {"name": "postgres", "size": 100, "pid": 1071}
         ]
         },
         {
         "name" : "postgres",
         "children":
         [
-        {"name": "postgres", "size": 0, "pid": 1067}
+        {"name": "postgres", "size": 100, "pid": 1072}
         ]
         },
         {
         "name" : "postgres",
         "children":
         [
-        {"name": "postgres", "size": 0, "pid": 1068}
+        {"name": "postgres", "size": 100, "pid": 1073}
         ]
         }    ]
     },
@@ -239,87 +239,87 @@
     "name" : "lightdm",
     "children":
     [
-    {"name": "lightdm", "size": 0, "pid": 1089}
+    {"name": "lightdm", "size": 100, "pid": 1094}
 ,
         {
         "name" : "Xorg",
         "children":
         [
-        {"name": "Xorg", "size": 0, "pid": 1101}
+        {"name": "Xorg", "size": 100, "pid": 1106}
         ]
         },
         {
         "name" : "lightdm",
         "children":
         [
-        {"name": "lightdm", "size": 0, "pid": 1265}
+        {"name": "lightdm", "size": 100, "pid": 1283}
 ,
             {
             "name" : "init",
             "children":
             [
-            {"name": "init", "size": 0, "pid": 1582}
+            {"name": "init", "size": 100, "pid": 1701}
 ,
                 {
                 "name" : "dbus-daemon",
                 "children":
                 [
-                {"name": "dbus-daemon", "size": 0, "pid": 1796}
+                {"name": "dbus-daemon", "size": 100, "pid": 1913}
                 ]
                 },
                 {
                 "name" : "upstart-event-b",
                 "children":
                 [
-                {"name": "upstart-event-b", "size": 0, "pid": 1807}
+                {"name": "upstart-event-b", "size": 100, "pid": 1924}
+                ]
+                },
+                {
+                "name" : "window-stack-br",
+                "children":
+                [
+                {"name": "window-stack-br", "size": 100, "pid": 1930}
                 ]
                 },
                 {
                 "name" : "ibus-daemon",
                 "children":
                 [
-                {"name": "ibus-daemon", "size": 0, "pid": 1818}
+                {"name": "ibus-daemon", "size": 100, "pid": 1937}
 ,
                     {
                     "name" : "ibus-dconf",
                     "children":
                     [
-                    {"name": "ibus-dconf", "size": 0, "pid": 1906}
+                    {"name": "ibus-dconf", "size": 100, "pid": 2017}
                     ]
                     },
                     {
                     "name" : "ibus-ui-gtk3",
                     "children":
                     [
-                    {"name": "ibus-ui-gtk3", "size": 0, "pid": 1907}
+                    {"name": "ibus-ui-gtk3", "size": 100, "pid": 2018}
                     ]
                     },
                     {
                     "name" : "ibus-engine-sim",
                     "children":
                     [
-                    {"name": "ibus-engine-sim", "size": 0, "pid": 2022}
+                    {"name": "ibus-engine-sim", "size": 100, "pid": 2073}
                     ]
                     }                ]
-                },
-                {
-                "name" : "window-stack-br",
-                "children":
-                [
-                {"name": "window-stack-br", "size": 0, "pid": 1823}
-                ]
                 },
                 {
                 "name" : "unity-settings-",
                 "children":
                 [
-                {"name": "unity-settings-", "size": 0, "pid": 1850}
+                {"name": "unity-settings-", "size": 100, "pid": 1963}
 ,
                     {
                     "name" : "syndaemon",
                     "children":
                     [
-                    {"name": "syndaemon", "size": 0, "pid": 1924}
+                    {"name": "syndaemon", "size": 100, "pid": 2047}
                     ]
                     }                ]
                 },
@@ -327,97 +327,90 @@
                 "name" : "hud-service",
                 "children":
                 [
-                {"name": "hud-service", "size": 0, "pid": 1856}
-                ]
-                },
-                {
-                "name" : "gnome-session",
-                "children":
-                [
-                {"name": "gnome-session", "size": 0, "pid": 1858}
-,
-                    {
-                    "name" : "compiz",
-                    "children":
-                    [
-                    {"name": "compiz", "size": 0, "pid": 2053}
-                    ]
-                    },
-                    {
-                    "name" : "nautilus",
-                    "children":
-                    [
-                    {"name": "nautilus", "size": 0, "pid": 2111}
-                    ]
-                    },
-                    {
-                    "name" : "polkit-gnome-au",
-                    "children":
-                    [
-                    {"name": "polkit-gnome-au", "size": 0, "pid": 2113}
-                    ]
-                    },
-                    {
-                    "name" : "unity-fallback-",
-                    "children":
-                    [
-                    {"name": "unity-fallback-", "size": 0, "pid": 2116}
-                    ]
-                    },
-                    {
-                    "name" : "nm-applet",
-                    "children":
-                    [
-                    {"name": "nm-applet", "size": 0, "pid": 2178}
-                    ]
-                    },
-                    {
-                    "name" : "telepathy-indic",
-                    "children":
-                    [
-                    {"name": "telepathy-indic", "size": 0, "pid": 2311}
-                    ]
-                    },
-                    {
-                    "name" : "zeitgeist-datah",
-                    "children":
-                    [
-                    {"name": "zeitgeist-datah", "size": 0, "pid": 2371}
-                    ]
-                    },
-                    {
-                    "name" : "update-notifier",
-                    "children":
-                    [
-                    {"name": "update-notifier", "size": 0, "pid": 2700}
-                    ]
-                    },
-                    {
-                    "name" : "deja-dup-monito",
-                    "children":
-                    [
-                    {"name": "deja-dup-monito", "size": 0, "pid": 3439}
-                    ]
-                    }                ]
-                },
-                {
-                "name" : "unity-panel-ser",
-                "children":
-                [
-                {"name": "unity-panel-ser", "size": 0, "pid": 1862}
+                {"name": "hud-service", "size": 100, "pid": 1970}
                 ]
                 },
                 {
                 "name" : "at-spi-bus-laun",
                 "children":
                 [
-                {"name": "at-spi-bus-laun", "size": 0, "pid": 1869}
+                {"name": "at-spi-bus-laun", "size": 100, "pid": 1971}
 ,
                     {
                     "name" : "dbus-daemon",
                     "children":
                     [
-                    {"name": "dbus-daemon", "size": 0, "pid": 1873}
+                    {"name": "dbus-daemon", "size": 100, "pid": 1977}
+                    ]
+                    }                ]
+                },
+                {
+                "name" : "gnome-session",
+                "children":
+                [
+                {"name": "gnome-session", "size": 100, "pid": 1978}
+,
+                    {
+                    "name" : "compiz",
+                    "children":
+                    [
+                    {"name": "compiz", "size": 100, "pid": 2131}
+                    ]
+                    },
+                    {
+                    "name" : "nautilus",
+                    "children":
+                    [
+                    {"name": "nautilus", "size": 100, "pid": 2222}
+                    ]
+                    },
+                    {
+                    "name" : "polkit-gnome-au",
+                    "children":
+                    [
+                    {"name": "polkit-gnome-au", "size": 100, "pid": 2223}
+                    ]
+                    },
+                    {
+                    "name" : "unity-fallback-",
+                    "children":
+                    [
+                    {"name": "unity-fallback-", "size": 100, "pid": 2226}
+                    ]
+                    },
+                    {
+                    "name" : "nm-applet",
+                    "children":
+                    [
+                    {"name": "nm-applet", "size": 100, "pid": 2239}
+                    ]
+                    },
+                    {
+                    "name" : "telepathy-indic",
+                    "children":
+                    [
+                    {"name": "telepathy-indic", "size": 100, "pid": 2334}
+                    ]
+                    },
+                    {
+                    "name" : "zeitgeist-datah",
+                    "children":
+                    [
+                    {"name": "zeitgeist-datah", "size": 100, "pid": 2411}
+                    ]
+                    },
+                    {
+                    "name" : "update-notifier",
+                    "children":
+                    [
+                    {"name": "update-notifier", "size": 100, "pid": 2559}
+                    ]
+                    },
+                    {
+                    "name" : "deja-dup-monito",
+                    "children":
+                    [
+                    {"name": "deja-dup-monito", "size": 100, "pid": 2928}
                     ]
                     }                ]
                 },
@@ -425,295 +418,379 @@
                 "name" : "gvfsd",
                 "children":
                 [
-                {"name": "gvfsd", "size": 0, "pid": 1880}
+                {"name": "gvfsd", "size": 100, "pid": 1984}
                 ]
                 },
                 {
-                "name" : "at-spi2-registr",
+                "name" : "unity-panel-ser",
                 "children":
                 [
-                {"name": "at-spi2-registr", "size": 0, "pid": 1882}
+                {"name": "unity-panel-ser", "size": 100, "pid": 1987}
                 ]
                 },
                 {
                 "name" : "gvfsd-fuse",
                 "children":
                 [
-                {"name": "gvfsd-fuse", "size": 0, "pid": 1888}
+                {"name": "gvfsd-fuse", "size": 100, "pid": 1989}
                 ]
                 },
                 {
-                "name" : "ibus-x11",
+                "name" : "at-spi2-registr",
                 "children":
                 [
-                {"name": "ibus-x11", "size": 0, "pid": 1909}
+                {"name": "at-spi2-registr", "size": 100, "pid": 1999}
                 ]
                 },
                 {
-                "name" : "dconf-service",
+                "name" : "upstart-dbus-br",
                 "children":
                 [
-                {"name": "dconf-service", "size": 0, "pid": 1917}
+                {"name": "upstart-dbus-br", "size": 100, "pid": 2008}
                 ]
                 },
                 {
-                "name" : "pulseaudio",
+                "name" : "upstart-dbus-br",
                 "children":
                 [
-                {"name": "pulseaudio", "size": 0, "pid": 1930}
+                {"name": "upstart-dbus-br", "size": 100, "pid": 2010}
                 ]
                 },
                 {
                 "name" : "upstart-file-br",
                 "children":
                 [
-                {"name": "upstart-file-br", "size": 0, "pid": 1982}
+                {"name": "upstart-file-br", "size": 100, "pid": 2013}
                 ]
                 },
                 {
-                "name" : "upstart-dbus-br",
+                "name" : "ibus-x11",
                 "children":
                 [
-                {"name": "upstart-dbus-br", "size": 0, "pid": 1984}
+                {"name": "ibus-x11", "size": 100, "pid": 2020}
                 ]
                 },
                 {
-                "name" : "upstart-dbus-br",
+                "name" : "dconf-service",
                 "children":
                 [
-                {"name": "upstart-dbus-br", "size": 0, "pid": 1985}
+                {"name": "dconf-service", "size": 100, "pid": 2049}
+                ]
+                },
+                {
+                "name" : "pulseaudio",
+                "children":
+                [
+                {"name": "pulseaudio", "size": 100, "pid": 2056}
                 ]
                 },
                 {
                 "name" : "bamfdaemon",
                 "children":
                 [
-                {"name": "bamfdaemon", "size": 0, "pid": 2075}
+                {"name": "bamfdaemon", "size": 100, "pid": 2103}
                 ]
                 },
                 {
                 "name" : "indicator-keybo",
                 "children":
                 [
-                {"name": "indicator-keybo", "size": 0, "pid": 2093}
+                {"name": "indicator-keybo", "size": 100, "pid": 2144}
                 ]
                 },
                 {
                 "name" : "indicator-messa",
                 "children":
                 [
-                {"name": "indicator-messa", "size": 0, "pid": 2098}
+                {"name": "indicator-messa", "size": 100, "pid": 2150}
                 ]
                 },
                 {
                 "name" : "indicator-bluet",
                 "children":
                 [
-                {"name": "indicator-bluet", "size": 0, "pid": 2102}
+                {"name": "indicator-bluet", "size": 100, "pid": 2153}
                 ]
                 },
                 {
                 "name" : "indicator-power",
                 "children":
                 [
-                {"name": "indicator-power", "size": 0, "pid": 2104}
+                {"name": "indicator-power", "size": 100, "pid": 2154}
                 ]
                 },
                 {
                 "name" : "indicator-datet",
                 "children":
                 [
-                {"name": "indicator-datet", "size": 0, "pid": 2112}
+                {"name": "indicator-datet", "size": 100, "pid": 2162}
                 ]
                 },
                 {
                 "name" : "indicator-sound",
                 "children":
                 [
-                {"name": "indicator-sound", "size": 0, "pid": 2117}
+                {"name": "indicator-sound", "size": 100, "pid": 2166}
                 ]
                 },
                 {
                 "name" : "indicator-print",
                 "children":
                 [
-                {"name": "indicator-print", "size": 0, "pid": 2118}
+                {"name": "indicator-print", "size": 100, "pid": 2169}
                 ]
                 },
                 {
                 "name" : "indicator-sessi",
                 "children":
                 [
-                {"name": "indicator-sessi", "size": 0, "pid": 2125}
+                {"name": "indicator-sessi", "size": 100, "pid": 2175}
                 ]
                 },
                 {
                 "name" : "indicator-appli",
                 "children":
                 [
-                {"name": "indicator-appli", "size": 0, "pid": 2139}
+                {"name": "indicator-appli", "size": 100, "pid": 2180}
                 ]
                 },
                 {
                 "name" : "evolution-sourc",
                 "children":
                 [
-                {"name": "evolution-sourc", "size": 0, "pid": 2166}
+                {"name": "evolution-sourc", "size": 100, "pid": 2208}
                 ]
                 },
                 {
                 "name" : "notify-osd",
                 "children":
                 [
-                {"name": "notify-osd", "size": 0, "pid": 2175}
+                {"name": "notify-osd", "size": 100, "pid": 2210}
                 ]
                 },
                 {
                 "name" : "gvfs-udisks2-vo",
                 "children":
                 [
-                {"name": "gvfs-udisks2-vo", "size": 0, "pid": 2184}
+                {"name": "gvfs-udisks2-vo", "size": 100, "pid": 2244}
                 ]
                 },
                 {
                 "name" : "gconfd-2",
                 "children":
                 [
-                {"name": "gconfd-2", "size": 0, "pid": 2198}
+                {"name": "gconfd-2", "size": 100, "pid": 2258}
                 ]
                 },
                 {
                 "name" : "gvfs-gphoto2-vo",
                 "children":
                 [
-                {"name": "gvfs-gphoto2-vo", "size": 0, "pid": 2218}
+                {"name": "gvfs-gphoto2-vo", "size": 100, "pid": 2272}
                 ]
                 },
                 {
                 "name" : "gvfs-mtp-volume",
                 "children":
                 [
-                {"name": "gvfs-mtp-volume", "size": 0, "pid": 2224}
+                {"name": "gvfs-mtp-volume", "size": 100, "pid": 2276}
                 ]
                 },
                 {
                 "name" : "gvfs-afc-volume",
                 "children":
                 [
-                {"name": "gvfs-afc-volume", "size": 0, "pid": 2228}
+                {"name": "gvfs-afc-volume", "size": 100, "pid": 2280}
                 ]
                 },
                 {
                 "name" : "evolution-calen",
                 "children":
                 [
-                {"name": "evolution-calen", "size": 0, "pid": 2246}
+                {"name": "evolution-calen", "size": 100, "pid": 2290}
                 ]
                 },
                 {
                 "name" : "gvfsd-burn",
                 "children":
                 [
-                {"name": "gvfsd-burn", "size": 0, "pid": 2265}
+                {"name": "gvfsd-burn", "size": 100, "pid": 2298}
                 ]
                 },
                 {
                 "name" : "gvfsd-trash",
                 "children":
                 [
-                {"name": "gvfsd-trash", "size": 0, "pid": 2274}
+                {"name": "gvfsd-trash", "size": 100, "pid": 2306}
                 ]
                 },
                 {
                 "name" : "mission-control",
                 "children":
                 [
-                {"name": "mission-control", "size": 0, "pid": 2322}
+                {"name": "mission-control", "size": 100, "pid": 2361}
+                ]
+                },
+                {
+                "name" : "dropbox",
+                "children":
+                [
+                {"name": "dropbox", "size": 100, "pid": 2410}
                 ]
                 },
                 {
                 "name" : "zeitgeist-daemo",
                 "children":
                 [
-                {"name": "zeitgeist-daemo", "size": 0, "pid": 2376}
+                {"name": "zeitgeist-daemo", "size": 100, "pid": 2421}
                 ]
                 },
                 {
                 "name" : "zeitgeist-fts",
                 "children":
                 [
-                {"name": "zeitgeist-fts", "size": 0, "pid": 2394}
+                {"name": "zeitgeist-fts", "size": 100, "pid": 2429}
 ,
                     {
                     "name" : "cat",
                     "children":
                     [
-                    {"name": "cat", "size": 0, "pid": 2415}
+                    {"name": "cat", "size": 100, "pid": 2444}
                     ]
                     }                ]
-                },
-                {
-                "name" : "dropbox",
-                "children":
-                [
-                {"name": "dropbox", "size": 0, "pid": 2422}
-                ]
                 },
                 {
                 "name" : "gvfsd-metadata",
                 "children":
                 [
-                {"name": "gvfsd-metadata", "size": 0, "pid": 2525}
+                {"name": "gvfsd-metadata", "size": 100, "pid": 2773}
                 ]
                 },
                 {
                 "name" : "unity-scope-hom",
                 "children":
                 [
-                {"name": "unity-scope-hom", "size": 0, "pid": 2693}
+                {"name": "unity-scope-hom", "size": 100, "pid": 2777}
                 ]
                 },
                 {
                 "name" : "unity-scope-loa",
                 "children":
                 [
-                {"name": "unity-scope-loa", "size": 0, "pid": 2730}
+                {"name": "unity-scope-loa", "size": 100, "pid": 2793}
                 ]
                 },
                 {
                 "name" : "unity-files-dae",
                 "children":
                 [
-                {"name": "unity-files-dae", "size": 0, "pid": 2732}
+                {"name": "unity-files-dae", "size": 100, "pid": 2795}
                 ]
                 },
                 {
                 "name" : "unity-music-dae",
                 "children":
                 [
-                {"name": "unity-music-dae", "size": 0, "pid": 2734}
+                {"name": "unity-music-dae", "size": 100, "pid": 2797}
+                ]
+                },
+                {
+                "name" : "chrome",
+                "children":
+                [
+                {"name": "chrome", "size": 100, "pid": 3085}
+,
+                    {
+                    "name" : "cat",
+                    "children":
+                    [
+                    {"name": "cat", "size": 100, "pid": 3094}
+                    ]
+                    },
+                    {
+                    "name" : "cat",
+                    "children":
+                    [
+                    {"name": "cat", "size": 100, "pid": 3095}
+                    ]
+                    },
+                    {
+                    "name" : "chrome",
+                    "children":
+                    [
+                    {"name": "chrome", "size": 100, "pid": 3098}
+,
+                        {
+                        "name" : "nacl_helper",
+                        "children":
+                        [
+                        {"name": "nacl_helper", "size": 100, "pid": 3101}
+                        ]
+                        },
+                        {
+                        "name" : "chrome",
+                        "children":
+                        [
+                        {"name": "chrome", "size": 100, "pid": 3104}
+,
+                            {
+                            "name" : "chrome",
+                            "children":
+                            [
+                            {"name": "chrome", "size": 100, "pid": 3823}
+                            ]
+                            }                        ]
+                        }                    ]
+                    },
+                    {
+                    "name" : "chrome",
+                    "children":
+                    [
+                    {"name": "chrome", "size": 100, "pid": 3132}
+,
+                        {
+                        "name" : "chrome",
+                        "children":
+                        [
+                        {"name": "chrome", "size": 100, "pid": 3158}
+                        ]
+                        }                    ]
+                    }                ]
+                },
+                {
+                "name" : "gvfsd-http",
+                "children":
+                [
+                {"name": "gvfsd-http", "size": 100, "pid": 4325}
                 ]
                 },
                 {
                 "name" : "qtcreator",
                 "children":
                 [
-                {"name": "qtcreator", "size": 0, "pid": 3395}
+                {"name": "qtcreator", "size": 100, "pid": 4704}
 ,
                     {
                     "name" : "GerenciadorTare",
                     "children":
                     [
-                    {"name": "GerenciadorTare", "size": 0, "pid": 8749}
+                    {"name": "GerenciadorTare", "size": 100, "pid": 11979}
 ,
                         {
                         "name" : "",
                         "children":
                         [
-                        {"name": "", "size": 0, "pid": 15630}
+                        {"name": "", "size": 100, "pid": 12658}
                         ]
                         }                    ]
                     }                ]
+                },
+                {
+                "name" : "gedit",
+                "children":
+                [
+                {"name": "gedit", "size": 100, "pid": 11856}
+                ]
                 }            ]
             }        ]
         }    ]
@@ -722,140 +799,133 @@
     "name" : "accounts-daemon",
     "children":
     [
-    {"name": "accounts-daemon", "size": 0, "pid": 1104}
+    {"name": "accounts-daemon", "size": 100, "pid": 1109}
     ]
     },
     {
     "name" : "kerneloops",
     "children":
     [
-    {"name": "kerneloops", "size": 0, "pid": 1138}
+    {"name": "kerneloops", "size": 100, "pid": 1143}
     ]
     },
     {
     "name" : "getty",
     "children":
     [
-    {"name": "getty", "size": 0, "pid": 1205}
+    {"name": "getty", "size": 100, "pid": 1214}
     ]
     },
     {
     "name" : "upowerd",
     "children":
     [
-    {"name": "upowerd", "size": 0, "pid": 1307}
+    {"name": "upowerd", "size": 100, "pid": 1321}
     ]
     },
     {
     "name" : "rtkit-daemon",
     "children":
     [
-    {"name": "rtkit-daemon", "size": 0, "pid": 1328}
-    ]
-    },
-    {
-    "name" : "colord",
-    "children":
-    [
-    {"name": "colord", "size": 0, "pid": 1505}
+    {"name": "rtkit-daemon", "size": 100, "pid": 1348}
     ]
     },
     {
     "name" : "teamviewerd",
     "children":
     [
-    {"name": "teamviewerd", "size": 0, "pid": 1516}
+    {"name": "teamviewerd", "size": 100, "pid": 1352}
 ,
         {
         "name" : "TeamViewer.exe",
         "children":
         [
-        {"name": "TeamViewer.exe", "size": 0, "pid": 1676}
+        {"name": "TeamViewer.exe", "size": 100, "pid": 1794}
 ,
             {
             "name" : "TVGuiSlave.64",
             "children":
             [
-            {"name": "TVGuiSlave.64", "size": 0, "pid": 2440}
+            {"name": "TVGuiSlave.64", "size": 100, "pid": 2459}
             ]
             },
             {
             "name" : "TVGuiDelegate",
             "children":
             [
-            {"name": "TVGuiDelegate", "size": 0, "pid": 2452}
+            {"name": "TVGuiDelegate", "size": 100, "pid": 2462}
             ]
             }        ]
         }    ]
     },
     {
-    "name" : "gnome-keyring-d",
+    "name" : "colord",
     "children":
     [
-    {"name": "gnome-keyring-d", "size": 0, "pid": 1547}
-    ]
-    },
-    {
-    "name" : "wineserver",
-    "children":
-    [
-    {"name": "wineserver", "size": 0, "pid": 2064}
-    ]
-    },
-    {
-    "name" : "services.exe",
-    "children":
-    [
-    {"name": "services.exe", "size": 0, "pid": 2089}
-    ]
-    },
-    {
-    "name" : "udisksd",
-    "children":
-    [
-    {"name": "udisksd", "size": 0, "pid": 2201}
+    {"name": "colord", "size": 100, "pid": 1519}
     ]
     },
     {
     "name" : "cupsd",
     "children":
     [
-    {"name": "cupsd", "size": 0, "pid": 2299}
+    {"name": "cupsd", "size": 100, "pid": 1591}
 ,
         {
         "name" : "dbus",
         "children":
         [
-        {"name": "dbus", "size": 0, "pid": 2303}
+        {"name": "dbus", "size": 100, "pid": 1595}
         ]
         },
         {
         "name" : "dbus",
         "children":
         [
-        {"name": "dbus", "size": 0, "pid": 2304}
-        ]
-        },
-        {
-        "name" : "dbus",
-        "children":
-        [
-        {"name": "dbus", "size": 0, "pid": 2305}
+        {"name": "dbus", "size": 100, "pid": 1596}
         ]
         }    ]
+    },
+    {
+    "name" : "gnome-keyring-d",
+    "children":
+    [
+    {"name": "gnome-keyring-d", "size": 100, "pid": 1678}
+    ]
+    },
+    {
+    "name" : "wineserver",
+    "children":
+    [
+    {"name": "wineserver", "size": 100, "pid": 2120}
+    ]
+    },
+    {
+    "name" : "services.exe",
+    "children":
+    [
+    {"name": "services.exe", "size": 100, "pid": 2140}
+    ]
+    },
+    {
+    "name" : "udisksd",
+    "children":
+    [
+    {"name": "udisksd", "size": 100, "pid": 2263}
+    ]
     },
     {
     "name" : "explorer.exe",
     "children":
     [
-    {"name": "explorer.exe", "size": 0, "pid": 2434}
+    {"name": "explorer.exe", "size": 100, "pid": 2451}
     ]
     },
     {
     "name" : "wpa_supplicant",
     "children":
     [
-    {"name": "wpa_supplicant", "size": 0, "pid": 2516}
+    {"name": "wpa_supplicant", "size": 100, "pid": 2606}
     ]
     }]
 }

@@ -21,7 +21,7 @@
     <item>
      <widget class="QTabWidget" name="tabGerenciamento">
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tabProcessos">
        <attribute name="title">
@@ -175,9 +175,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QCustomPlot" name="customPlot2" native="true">
-          <zorder>tabGerenciamento</zorder>
-         </widget>
+         <widget class="QCustomPlot" name="customPlot2" native="true"/>
         </item>
        </layout>
       </widget>

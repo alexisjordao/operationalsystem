@@ -1,17 +1,45 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include<QApplication>
+#include<stdio.h>
+#include<string>
+#include<vector>
+#include<iostream>
+#include<unistd.h>
+#include<cstdlib>
+#include<sys/types.h>
+#include<sys/wait.h>
+#include<unistd.h>
+#include<cstdio>
+#include<cstdlib>
+#include<fstream>
+#include<sstream>
+#include<ctime>
+#include<utility>
+#include<vector>
+#include<sstream>
+#include<dirent.h>
+#include<fstream>
+#include<cstring>
+#include<algorithm>
+#include "sys/sysinfo.h"
+using namespace std;
+
+struct sysinfo memInfo;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->webViewProcessos->load(QUrl("qrc:///index.html"));
+    ui->webViewProcessos->load(QUrl("file:///home/jordao/operationalsystems/teste/index.html"));
 
     inicializarGraficoCPU();
     inicializarGraficoMemoria();
     inicializarGraficoCarga();
     inicializarGraficoTempoDescarga();
+    connect(ui->pushButtonKill,SIGNAL(clicked(bool)),this,SLOT(matar()));
+    connect(ui->pushButtonAtualizar,SIGNAL(clicked(bool)),this,SLOT(atualizar()));
 }
 
 MainWindow::~MainWindow()
@@ -67,7 +95,7 @@ void MainWindow::inicializarGraficoCPU()
 
     // setup a timer that repeatedly calls MainWindow::realtimeDataSlot:
     connect(&dataTimer, SIGNAL(timeout()), this, SLOT(atualizarGraficoCPU()));
-    dataTimer.start(0); // Interval 0 means to refresh as fast as possible
+    dataTimer.start(500); // Interval 0 means to refresh as fast as possible
 }
 
 void MainWindow::inicializarGraficoMemoria()
@@ -160,7 +188,7 @@ void MainWindow::inicializarGraficoCarga()
 
     // setup a timer that repeatedly calls MainWindow::realtimeDataSlot:
     connect(&cargaTimer, SIGNAL(timeout()), this, SLOT(atualizarGraficoCarga()));
-    cargaTimer.start(0); // Interval 0 means to refresh as fast as possible
+    cargaTimer.start(500); // Interval 0 means to refresh as fast as possible
 }
 
 
@@ -200,7 +228,7 @@ void MainWindow::inicializarGraficoTempoDescarga()
 
     // setup a timer that repeatedly calls MainWindow::realtimeDataSlot:
     connect(&tempoDescargaTimer, SIGNAL(timeout()), this, SLOT(atualizarGraficoTempoDescarga()));
-    tempoDescargaTimer.start(0); // Interval 0 means to refresh as fast as possible
+    tempoDescargaTimer.start(500); // Interval 0 means to refresh as fast as possible
 }
 
 /*
@@ -266,7 +294,22 @@ int memoriaDois()
 void MainWindow::atualizarGraficoMemoria()
 {
     double key = QDateTime::currentDateTime().toMSecsSinceEpoch()/1000.0;
-    double value0 = memoriaDois();
+
+    sysinfo (&memInfo);
+
+    long long physMemUsed = memInfo.totalram - memInfo.freeram;
+    //Multiply in next statement to avoid int overflow on right hand side...
+    physMemUsed *= memInfo.mem_unit;
+
+    long long totalPhysMem = memInfo.totalram;
+        //Multiply in next statement to avoid int overflow on right hand side...
+        totalPhysMem *= memInfo.mem_unit;
+
+   // http://stackoverflow.com/questions/63166/how-to-determine-cpu-and-memory-consumption-from-inside-a-process
+
+//double value0 = memoriaDois();
+    double value0 = (double)physMemUsed/(double)totalPhysMem;
+    cout<<value0<<endl;
     double value1 = qCos(key);
 
     // add data to lines:
@@ -287,7 +330,6 @@ void MainWindow::atualizarGraficoMemoria()
     ui->customPlot2->replot();
 
 }
-
 
 void MainWindow::atualizarGraficoCarga()
 {
@@ -327,4 +369,156 @@ void MainWindow::atualizarGraficoTempoDescarga()
     // make key axis range scroll with the data (at a constant range size of 8):
     ui->customPlot4->xAxis->setRange(key+0.25,60, Qt::AlignRight);
     ui->customPlot4->replot();
+}
+
+void MainWindow::matar()
+{
+    int a;
+    a = ui->lineEditPID->text().toInt();
+
+    stringstream ss;
+    ss << "kill " << a;
+
+    system(ss.str().c_str());
+}
+
+
+/*******************/
+
+
+ofstream wjson;
+
+bool wis_number(const std::string& s) {
+    return !s.empty() && std::find_if(s.begin(),
+        s.end(), [](char c) { return !std::isdigit(c); }) == s.end();
+}
+
+vector<string> wlistFile(){
+    vector<string> retorno;
+
+    DIR *pDIR;
+    struct dirent *entry;
+    if( pDIR=opendir("/proc/") ){
+        while(entry = readdir(pDIR)){
+            if( strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0 )
+            //cout << entry->d_name << "\n";
+            //if(entry->d_name[0]=='f' &&  entry->d_name[1]=='i' &&  entry->d_name[2]=='l' &&  entry->d_name[3]=='h')
+            if ( wis_number(entry->d_name))
+            retorno.push_back(entry->d_name);
+        }
+        closedir(pDIR);
+    }
+    return retorno;
+}
+
+int wcpu()
+{
+    ifstream myfile;
+    myfile.open("/proc/stat");
+
+    string teste;
+    int cpu0, cpu1, sum;
+    float average;
+
+    myfile >> teste;
+    myfile >> cpu0;
+    sleep(10);
+    myfile >> teste;
+    myfile >> cpu1;
+
+    sum = cpu0 + cpu1;
+    average = (sum/2);
+
+    return average;
+}
+
+vector<int> wlistChildren(int parent)
+{
+    stringstream ss;
+    ss << "ps --ppid " << parent << " > tmp";
+
+    //cout << ss.str();
+
+    vector<int> retorno;
+
+    system(ss.str().c_str());
+
+    ifstream myfile;
+    myfile.open("tmp");
+
+    string teste;
+    int cpid;
+
+    myfile >> teste;
+
+    while(true)
+    {
+        myfile >> teste;
+        myfile >> teste;
+        myfile >> teste;
+        myfile >> cpid;
+        if( myfile.eof() ) break;
+        retorno.push_back(cpid);
+    }
+    return retorno;
+
+}
+
+string wgetPName(int pid)
+{
+    stringstream ss;
+    ss << "ps -p " << pid << " -o comm= > tmp2";
+
+    system(ss.str().c_str());
+
+    ifstream myfile;
+    myfile.open("tmp2");
+
+    string retorno;
+
+    myfile >> retorno;
+
+    return retorno;
+}
+
+void wrecursiveJSon(int processo,int nivel)
+{
+    vector<int> children = wlistChildren(processo);
+
+    wjson<<string(nivel*4,' ')<<"{"<<endl;
+    wjson<<string(nivel*4,' ')<<"\"name\" : \""<< wgetPName(processo) <<"\","<<endl;
+    wjson<<string(nivel*4,' ')<<"\"children\":"<<endl;
+    wjson<<string(nivel*4,' ')<<"["<<endl;
+                                                                             // colocar memoria usada pelo processo
+    wjson<<string(nivel*4,' ')<<"{\"name\": \""<<wgetPName(processo)<<"\", \"size\": 0, \"pid\": "<<processo<<"}"<<endl;
+
+    for(auto x:children)
+    {
+        wjson<<","<<endl;
+        wrecursiveJSon(x,nivel+1);
+    }
+
+    wjson<<string(nivel*4,' ')<<"]"<<endl;
+
+
+    wjson<<string(nivel*4,' ')<<"}";
+
+}
+
+
+
+void MainWindow::atualizar()
+{
+    wjson.open ("/home/jordao/operationalsystems/teste/processos.json");
+    wrecursiveJSon(1,0);
+    wjson.close();
+
+    QString fn = "/home/jordao/operationalsystems/teste/index.html";
+    QFileInfo fi(fn);
+    cout<<"oi "<< fi.canonicalFilePath().toStdString() <<endl;
+
+    ui->webViewProcessos->load(QUrl("file:///home/jordao/operationalsystems/teste/index.html"));
+    ui->webViewProcessos->reload();
+    ui->webViewProcessos->repaint();
+    ui->webViewProcessos->update();
 }

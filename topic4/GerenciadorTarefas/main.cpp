@@ -136,10 +136,10 @@ void recursiveJSon(int processo,int nivel)
     vector<int> children = listChildren(processo);
 
     json<<string(nivel*4,' ')<<"{"<<endl;
-    json<<string(nivel*4,' ')<<"\"name\" : '"<< getPName(processo) <<"',"<<endl;
+    json<<string(nivel*4,' ')<<"\"name\" : \""<< getPName(processo) <<"\","<<endl;
     json<<string(nivel*4,' ')<<"\"children\":"<<endl;
     json<<string(nivel*4,' ')<<"["<<endl;
-    json<<string(nivel*4,' ')<<"{\"name\": '"<<getPName(processo)<<"', \"size\": 100, \"pid\": "<<processo<<"}"<<endl;
+    json<<string(nivel*4,' ')<<"{\"name\": \""<<getPName(processo)<<"\", \"size\": 100, \"pid\": "<<processo<<"}"<<endl;
 
     for(auto x:children)
     {
@@ -165,7 +165,7 @@ int main(int argc, char *argv[])
     //for(auto x : listFile())
     //    cout << x << endl;
 
-    json.open ("saida.txt");
+    json.open ("/home/jordao/operationalsystems/teste/processos.json");
     recursiveJSon(1,0);
     json.close();
 

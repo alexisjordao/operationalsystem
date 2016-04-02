@@ -312,6 +312,8 @@ void MainWindow::atualizarGraficoMemoria()
 
     sysinfo (&memInfo);
 
+    double swap = ((double)(memInfo.totalswap - memInfo.freeswap)) /  ((double)memInfo.totalswap);
+
     long long physMemUsed = memInfo.totalram - memInfo.freeram;
     //Multiply in next statement to avoid int overflow on right hand side...
     physMemUsed *= memInfo.mem_unit;
@@ -323,8 +325,8 @@ void MainWindow::atualizarGraficoMemoria()
    // http://stackoverflow.com/questions/63166/how-to-determine-cpu-and-memory-consumption-from-inside-a-process
 
     double value0 = (double)physMemUsed/(double)totalPhysMem;
-    cout<<value0<<endl;
-    double value1 = qCos(key);
+    //cout<<value0<<endl;
+    double value1 = swap;
 
     // add data to lines:
       ui->customPlot2->graph(0)->addData(key, value0);
@@ -495,6 +497,22 @@ string wgetPName(int pid)
     return retorno;
 }
 
+
+int wmemorybypid(int pid)
+{
+    stringstream ss;
+    ss << "/proc/" << pid << "/statm";
+
+    ifstream myfile;
+    myfile.open(ss.str().c_str());
+
+    int retorno;
+
+    myfile >> retorno;
+
+    return retorno;
+}
+
 void wrecursiveJSon(int processo,int nivel)
 {
     vector<int> children = wlistChildren(processo);
@@ -504,7 +522,7 @@ void wrecursiveJSon(int processo,int nivel)
     wjson<<string(nivel*4,' ')<<"\"children\":"<<endl;
     wjson<<string(nivel*4,' ')<<"["<<endl;
                                                                              // colocar memoria usada pelo processo
-    wjson<<string(nivel*4,' ')<<"{\"name\": \""<<wgetPName(processo)<<"\", \"size\": 0, \"pid\": "<<processo<<"}"<<endl;
+    wjson<<string(nivel*4,' ')<<"{\"name\": \""<<wgetPName(processo)<<"\", \"size\":  "<<wmemorybypid(processo)/1000<<", \"pid\": "<<processo<<"}"<<endl;
 
     for(auto x:children)
     {
@@ -527,9 +545,9 @@ void MainWindow::atualizar()
     wrecursiveJSon(1,0);
     wjson.close();
 
-    QString fn = "/home/jordao/operationalsystems/teste/index.html";
-    QFileInfo fi(fn);
-    cout<<"oi "<< fi.canonicalFilePath().toStdString() <<endl;
+    //QString fn = "/home/jordao/operationalsystems/teste/index.html";
+    //QFileInfo fi(fn);
+    //cout<<"oi "<< fi.canonicalFilePath().toStdString() <<endl;
 
     ui->webViewProcessos->load(QUrl("file:///home/jordao/operationalsystems/teste/index.html"));
     ui->webViewProcessos->reload();

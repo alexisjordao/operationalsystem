@@ -1,97 +1,83 @@
 {
-"name" : "init",
+"name" : "initoo",
 "children":
 [
-{"name": "init", "size":  8, "pid": 1}
+{"name": "inito", "size": 0, "pid": 1}
 ,
     {
     "name" : "upstart-udev-br",
     "children":
     [
-    {"name": "upstart-udev-br", "size":  4, "pid": 273}
+    {"name": "upstart-udev-br", "size": 0, "pid": 273}
     ]
     },
     {
     "name" : "systemd-udevd",
     "children":
     [
-    {"name": "systemd-udevd", "size":  12, "pid": 279}
-,
-        {
-        "name" : "systemd-udevd",
-        "children":
-        [
-        {"name": "systemd-udevd", "size":  12, "pid": 29187}
-        ]
-        },
-        {
-        "name" : "systemd-udevd",
-        "children":
-        [
-        {"name": "systemd-udevd", "size":  12, "pid": 29188}
-        ]
-        }    ]
+    {"name": "systemd-udevd", "size": 0, "pid": 279}
+    ]
     },
     {
     "name" : "upstart-socket-",
     "children":
     [
-    {"name": "upstart-socket-", "size":  3, "pid": 425}
+    {"name": "upstart-socket-", "size": 0, "pid": 425}
     ]
     },
     {
     "name" : "dbus-daemon",
     "children":
     [
-    {"name": "dbus-daemon", "size":  10, "pid": 591}
+    {"name": "dbus-daemon", "size": 0, "pid": 591}
     ]
     },
     {
     "name" : "ModemManager",
     "children":
     [
-    {"name": "ModemManager", "size":  83, "pid": 618}
+    {"name": "ModemManager", "size": 0, "pid": 618}
     ]
     },
     {
     "name" : "bluetoothd",
     "children":
     [
-    {"name": "bluetoothd", "size":  4, "pid": 619}
+    {"name": "bluetoothd", "size": 0, "pid": 619}
     ]
     },
     {
     "name" : "upstart-file-br",
     "children":
     [
-    {"name": "upstart-file-br", "size":  3, "pid": 639}
+    {"name": "upstart-file-br", "size": 0, "pid": 639}
     ]
     },
     {
     "name" : "rsyslogd",
     "children":
     [
-    {"name": "rsyslogd", "size":  63, "pid": 661}
+    {"name": "rsyslogd", "size": 0, "pid": 661}
     ]
     },
     {
     "name" : "systemd-logind",
     "children":
     [
-    {"name": "systemd-logind", "size":  10, "pid": 733}
+    {"name": "systemd-logind", "size": 0, "pid": 733}
     ]
     },
     {
     "name" : "avahi-daemon",
     "children":
     [
-    {"name": "avahi-daemon", "size":  8, "pid": 736}
+    {"name": "avahi-daemon", "size": 0, "pid": 736}
 ,
         {
         "name" : "avahi-daemon",
         "children":
         [
-        {"name": "avahi-daemon", "size":  8, "pid": 739}
+        {"name": "avahi-daemon", "size": 0, "pid": 739}
         ]
         }    ]
     },
@@ -99,20 +85,20 @@
     "name" : "NetworkManager",
     "children":
     [
-    {"name": "NetworkManager", "size":  87, "pid": 826}
+    {"name": "NetworkManager", "size": 0, "pid": 826}
 ,
         {
         "name" : "dnsmasq",
         "children":
         [
-        {"name": "dnsmasq", "size":  8, "pid": 3057}
+        {"name": "dnsmasq", "size": 0, "pid": 3057}
         ]
         },
         {
         "name" : "dhclient",
         "children":
         [
-        {"name": "dhclient", "size":  2, "pid": 19849}
+        {"name": "dhclient", "size": 0, "pid": 19849}
         ]
         }    ]
     },
@@ -120,110 +106,110 @@
     "name" : "polkitd",
     "children":
     [
-    {"name": "polkitd", "size":  70, "pid": 832}
+    {"name": "polkitd", "size": 0, "pid": 832}
     ]
     },
     {
     "name" : "getty",
     "children":
     [
-    {"name": "getty", "size":  5, "pid": 861}
+    {"name": "getty", "size": 0, "pid": 861}
     ]
     },
     {
     "name" : "getty",
     "children":
     [
-    {"name": "getty", "size":  5, "pid": 865}
+    {"name": "getty", "size": 0, "pid": 865}
     ]
     },
     {
     "name" : "getty",
     "children":
     [
-    {"name": "getty", "size":  5, "pid": 871}
+    {"name": "getty", "size": 0, "pid": 871}
     ]
     },
     {
     "name" : "getty",
     "children":
     [
-    {"name": "getty", "size":  5, "pid": 876}
+    {"name": "getty", "size": 0, "pid": 876}
     ]
     },
     {
     "name" : "console-kit-dae",
     "children":
     [
-    {"name": "console-kit-dae", "size":  262, "pid": 878}
+    {"name": "console-kit-dae", "size": 0, "pid": 878}
     ]
     },
     {
     "name" : "getty",
     "children":
     [
-    {"name": "getty", "size":  5, "pid": 881}
+    {"name": "getty", "size": 0, "pid": 881}
     ]
     },
     {
     "name" : "mongod",
     "children":
     [
-    {"name": "mongod", "size":  95, "pid": 917}
+    {"name": "mongod", "size": 0, "pid": 917}
     ]
     },
     {
     "name" : "acpid",
     "children":
     [
-    {"name": "acpid", "size":  1, "pid": 930}
+    {"name": "acpid", "size": 0, "pid": 930}
     ]
     },
     {
     "name" : "irqbalance",
     "children":
     [
-    {"name": "irqbalance", "size":  4, "pid": 1000}
+    {"name": "irqbalance", "size": 0, "pid": 1000}
     ]
     },
     {
     "name" : "cups-browsed",
     "children":
     [
-    {"name": "cups-browsed", "size":  18, "pid": 1028}
+    {"name": "cups-browsed", "size": 0, "pid": 1028}
     ]
     },
     {
     "name" : "cron",
     "children":
     [
-    {"name": "cron", "size":  5, "pid": 1046}
+    {"name": "cron", "size": 0, "pid": 1046}
     ]
     },
     {
     "name" : "teamviewerd",
     "children":
     [
-    {"name": "teamviewerd", "size":  36, "pid": 1130}
+    {"name": "teamviewerd", "size": 0, "pid": 1130}
 ,
         {
         "name" : "TeamViewer.exe",
         "children":
         [
-        {"name": "TeamViewer.exe", "size":  668, "pid": 1848}
+        {"name": "TeamViewer.exe", "size": 0, "pid": 1848}
 ,
             {
             "name" : "TVGuiSlave.64",
             "children":
             [
-            {"name": "TVGuiSlave.64", "size":  95, "pid": 2554}
+            {"name": "TVGuiSlave.64", "size": 0, "pid": 2554}
             ]
             },
             {
             "name" : "TVGuiDelegate",
             "children":
             [
-            {"name": "TVGuiDelegate", "size":  16, "pid": 2559}
+            {"name": "TVGuiDelegate", "size": 0, "pid": 2559}
             ]
             }        ]
         }    ]
@@ -232,48 +218,48 @@
     "name" : "whoopsie",
     "children":
     [
-    {"name": "whoopsie", "size":  92, "pid": 1137}
+    {"name": "whoopsie", "size": 0, "pid": 1137}
     ]
     },
     {
     "name" : "postgres",
     "children":
     [
-    {"name": "postgres", "size":  63, "pid": 1154}
+    {"name": "postgres", "size": 0, "pid": 1154}
 ,
         {
         "name" : "postgres",
         "children":
         [
-        {"name": "postgres", "size":  63, "pid": 1186}
+        {"name": "postgres", "size": 0, "pid": 1186}
         ]
         },
         {
         "name" : "postgres",
         "children":
         [
-        {"name": "postgres", "size":  63, "pid": 1187}
+        {"name": "postgres", "size": 0, "pid": 1187}
         ]
         },
         {
         "name" : "postgres",
         "children":
         [
-        {"name": "postgres", "size":  63, "pid": 1188}
+        {"name": "postgres", "size": 0, "pid": 1188}
         ]
         },
         {
         "name" : "postgres",
         "children":
         [
-        {"name": "postgres", "size":  63, "pid": 1189}
+        {"name": "postgres", "size": 0, "pid": 1189}
         ]
         },
         {
         "name" : "postgres",
         "children":
         [
-        {"name": "postgres", "size":  27, "pid": 1190}
+        {"name": "postgres", "size": 0, "pid": 1190}
         ]
         }    ]
     },
@@ -281,66 +267,136 @@
     "name" : "lightdm",
     "children":
     [
-    {"name": "lightdm", "size":  87, "pid": 1210}
+    {"name": "lightdm", "size": 0, "pid": 1210}
 ,
         {
         "name" : "Xorg",
         "children":
         [
-        {"name": "Xorg", "size":  97, "pid": 1242}
+        {"name": "Xorg", "size": 0, "pid": 1242}
         ]
         },
         {
         "name" : "lightdm",
         "children":
         [
-        {"name": "lightdm", "size":  43, "pid": 1373}
+        {"name": "lightdm", "size": 0, "pid": 1373}
 ,
             {
             "name" : "init",
             "children":
             [
-            {"name": "init", "size":  10, "pid": 1785}
+            {"name": "init", "size": 0, "pid": 1785}
 ,
+                {
+                "name" : "chrome",
+                "children":
+                [
+                {"name": "chrome", "size": 0, "pid": 1093}
+,
+                    {
+                    "name" : "cat",
+                    "children":
+                    [
+                    {"name": "cat", "size": 0, "pid": 1102}
+                    ]
+                    },
+                    {
+                    "name" : "cat",
+                    "children":
+                    [
+                    {"name": "cat", "size": 0, "pid": 1103}
+                    ]
+                    },
+                    {
+                    "name" : "chrome",
+                    "children":
+                    [
+                    {"name": "chrome", "size": 0, "pid": 1114}
+,
+                        {
+                        "name" : "nacl_helper",
+                        "children":
+                        [
+                        {"name": "nacl_helper", "size": 0, "pid": 1115}
+                        ]
+                        },
+                        {
+                        "name" : "chrome",
+                        "children":
+                        [
+                        {"name": "chrome", "size": 0, "pid": 1118}
+,
+                            {
+                            "name" : "chrome",
+                            "children":
+                            [
+                            {"name": "chrome", "size": 0, "pid": 3307}
+                            ]
+                            },
+                            {
+                            "name" : "chrome",
+                            "children":
+                            [
+                            {"name": "chrome", "size": 0, "pid": 3319}
+                            ]
+                            }                        ]
+                        }                    ]
+                    },
+                    {
+                    "name" : "chrome",
+                    "children":
+                    [
+                    {"name": "chrome", "size": 0, "pid": 1176}
+,
+                        {
+                        "name" : "chrome",
+                        "children":
+                        [
+                        {"name": "chrome", "size": 0, "pid": 1197}
+                        ]
+                        }                    ]
+                    }                ]
+                },
                 {
                 "name" : "dbus-daemon",
                 "children":
                 [
-                {"name": "dbus-daemon", "size":  10, "pid": 2055}
+                {"name": "dbus-daemon", "size": 0, "pid": 2055}
                 ]
                 },
                 {
                 "name" : "upstart-event-b",
                 "children":
                 [
-                {"name": "upstart-event-b", "size":  5, "pid": 2066}
+                {"name": "upstart-event-b", "size": 0, "pid": 2066}
                 ]
                 },
                 {
                 "name" : "ibus-daemon",
                 "children":
                 [
-                {"name": "ibus-daemon", "size":  92, "pid": 2074}
+                {"name": "ibus-daemon", "size": 0, "pid": 2074}
 ,
                     {
                     "name" : "ibus-dconf",
                     "children":
                     [
-                    {"name": "ibus-dconf", "size":  70, "pid": 2118}
+                    {"name": "ibus-dconf", "size": 0, "pid": 2118}
                     ]
                     },
                     {
                     "name" : "ibus-ui-gtk3",
                     "children":
                     [
-                    {"name": "ibus-ui-gtk3", "size":  122, "pid": 2119}
+                    {"name": "ibus-ui-gtk3", "size": 0, "pid": 2119}
                     ]
                     },
                     {
                     "name" : "ibus-engine-sim",
                     "children":
                     [
-                    {"name": "ibus-engine-sim", "size":  51, "pid": 2190}
+                    {"name": "ibus-engine-sim", "size": 0, "pid": 2190}
                     ]
                     }                ]
                 },
@@ -348,62 +404,62 @@
                 "name" : "window-stack-br",
                 "children":
                 [
-                {"name": "window-stack-br", "size":  19, "pid": 2076}
+                {"name": "window-stack-br", "size": 0, "pid": 2076}
                 ]
                 },
                 {
                 "name" : "upstart-dbus-br",
                 "children":
                 [
-                {"name": "upstart-dbus-br", "size":  5, "pid": 2093}
+                {"name": "upstart-dbus-br", "size": 0, "pid": 2093}
                 ]
                 },
                 {
                 "name" : "upstart-file-br",
                 "children":
                 [
-                {"name": "upstart-file-br", "size":  7, "pid": 2097}
+                {"name": "upstart-file-br", "size": 0, "pid": 2097}
                 ]
                 },
                 {
                 "name" : "upstart-dbus-br",
                 "children":
                 [
-                {"name": "upstart-dbus-br", "size":  5, "pid": 2099}
+                {"name": "upstart-dbus-br", "size": 0, "pid": 2099}
                 ]
                 },
                 {
                 "name" : "gvfsd",
                 "children":
                 [
-                {"name": "gvfsd", "size":  86, "pid": 2102}
+                {"name": "gvfsd", "size": 0, "pid": 2102}
                 ]
                 },
                 {
                 "name" : "gvfsd-fuse",
                 "children":
                 [
-                {"name": "gvfsd-fuse", "size":  86, "pid": 2106}
+                {"name": "gvfsd-fuse", "size": 0, "pid": 2106}
                 ]
                 },
                 {
                 "name" : "ibus-x11",
                 "children":
                 [
-                {"name": "ibus-x11", "size":  96, "pid": 2125}
+                {"name": "ibus-x11", "size": 0, "pid": 2125}
                 ]
                 },
                 {
                 "name" : "unity-settings-",
                 "children":
                 [
-                {"name": "unity-settings-", "size":  202, "pid": 2133}
+                {"name": "unity-settings-", "size": 0, "pid": 2133}
 ,
                     {
                     "name" : "syndaemon",
                     "children":
                     [
-                    {"name": "syndaemon", "size":  5, "pid": 2178}
+                    {"name": "syndaemon", "size": 0, "pid": 2178}
                     ]
                     }                ]
                 },
@@ -411,20 +467,20 @@
                 "name" : "hud-service",
                 "children":
                 [
-                {"name": "hud-service", "size":  171, "pid": 2139}
+                {"name": "hud-service", "size": 0, "pid": 2139}
                 ]
                 },
                 {
                 "name" : "at-spi-bus-laun",
                 "children":
                 [
-                {"name": "at-spi-bus-laun", "size":  84, "pid": 2143}
+                {"name": "at-spi-bus-laun", "size": 0, "pid": 2143}
 ,
                     {
                     "name" : "dbus-daemon",
                     "children":
                     [
-                    {"name": "dbus-daemon", "size":  9, "pid": 2148}
+                    {"name": "dbus-daemon", "size": 0, "pid": 2148}
                     ]
                     }                ]
                 },
@@ -432,69 +488,69 @@
                 "name" : "gnome-session",
                 "children":
                 [
-                {"name": "gnome-session", "size":  146, "pid": 2146}
+                {"name": "gnome-session", "size": 0, "pid": 2146}
 ,
                     {
                     "name" : "compiz",
                     "children":
                     [
-                    {"name": "compiz", "size":  386, "pid": 2217}
+                    {"name": "compiz", "size": 0, "pid": 2217}
                     ]
                     },
                     {
                     "name" : "nautilus",
                     "children":
                     [
-                    {"name": "nautilus", "size":  373, "pid": 2305}
+                    {"name": "nautilus", "size": 0, "pid": 2305}
                     ]
                     },
                     {
                     "name" : "polkit-gnome-au",
                     "children":
                     [
-                    {"name": "polkit-gnome-au", "size":  83, "pid": 2307}
+                    {"name": "polkit-gnome-au", "size": 0, "pid": 2307}
                     ]
                     },
                     {
                     "name" : "unity-fallback-",
                     "children":
                     [
-                    {"name": "unity-fallback-", "size":  137, "pid": 2309}
+                    {"name": "unity-fallback-", "size": 0, "pid": 2309}
                     ]
                     },
                     {
                     "name" : "nm-applet",
                     "children":
                     [
-                    {"name": "nm-applet", "size":  150, "pid": 2318}
+                    {"name": "nm-applet", "size": 0, "pid": 2318}
                     ]
                     },
                     {
                     "name" : "telepathy-indic",
                     "children":
                     [
-                    {"name": "telepathy-indic", "size":  113, "pid": 2417}
+                    {"name": "telepathy-indic", "size": 0, "pid": 2417}
                     ]
                     },
                     {
                     "name" : "zeitgeist-datah",
                     "children":
                     [
-                    {"name": "zeitgeist-datah", "size":  117, "pid": 2434}
+                    {"name": "zeitgeist-datah", "size": 0, "pid": 2434}
                     ]
                     },
                     {
                     "name" : "update-notifier",
                     "children":
                     [
-                    {"name": "update-notifier", "size":  124, "pid": 2649}
+                    {"name": "update-notifier", "size": 0, "pid": 2649}
                     ]
                     },
                     {
                     "name" : "deja-dup-monito",
                     "children":
                     [
-                    {"name": "deja-dup-monito", "size":  94, "pid": 2931}
+                    {"name": "deja-dup-monito", "size": 0, "pid": 2931}
                     ]
                     }                ]
                 },
@@ -502,195 +558,195 @@
                 "name" : "unity-panel-ser",
                 "children":
                 [
-                {"name": "unity-panel-ser", "size":  145, "pid": 2151}
+                {"name": "unity-panel-ser", "size": 0, "pid": 2151}
                 ]
                 },
                 {
                 "name" : "at-spi2-registr",
                 "children":
                 [
-                {"name": "at-spi2-registr", "size":  31, "pid": 2153}
+                {"name": "at-spi2-registr", "size": 0, "pid": 2153}
                 ]
                 },
                 {
                 "name" : "dconf-service",
                 "children":
                 [
-                {"name": "dconf-service", "size":  44, "pid": 2174}
+                {"name": "dconf-service", "size": 0, "pid": 2174}
                 ]
                 },
                 {
                 "name" : "pulseaudio",
                 "children":
                 [
-                {"name": "pulseaudio", "size":  93, "pid": 2182}
+                {"name": "pulseaudio", "size": 0, "pid": 2182}
                 ]
                 },
                 {
                 "name" : "bamfdaemon",
                 "children":
                 [
-                {"name": "bamfdaemon", "size":  139, "pid": 2219}
+                {"name": "bamfdaemon", "size": 0, "pid": 2219}
                 ]
                 },
                 {
                 "name" : "indicator-keybo",
                 "children":
                 [
-                {"name": "indicator-keybo", "size":  149, "pid": 2229}
+                {"name": "indicator-keybo", "size": 0, "pid": 2229}
                 ]
                 },
                 {
                 "name" : "indicator-messa",
                 "children":
                 [
-                {"name": "indicator-messa", "size":  83, "pid": 2235}
+                {"name": "indicator-messa", "size": 0, "pid": 2235}
                 ]
                 },
                 {
                 "name" : "indicator-bluet",
                 "children":
                 [
-                {"name": "indicator-bluet", "size":  66, "pid": 2237}
+                {"name": "indicator-bluet", "size": 0, "pid": 2237}
                 ]
                 },
                 {
                 "name" : "indicator-power",
                 "children":
                 [
-                {"name": "indicator-power", "size":  69, "pid": 2240}
+                {"name": "indicator-power", "size": 0, "pid": 2240}
                 ]
                 },
                 {
                 "name" : "indicator-datet",
                 "children":
                 [
-                {"name": "indicator-datet", "size":  290, "pid": 2241}
+                {"name": "indicator-datet", "size": 0, "pid": 2241}
                 ]
                 },
                 {
                 "name" : "indicator-sound",
                 "children":
                 [
-                {"name": "indicator-sound", "size":  138, "pid": 2246}
+                {"name": "indicator-sound", "size": 0, "pid": 2246}
                 ]
                 },
                 {
                 "name" : "indicator-print",
                 "children":
                 [
-                {"name": "indicator-print", "size":  111, "pid": 2250}
+                {"name": "indicator-print", "size": 0, "pid": 2250}
                 ]
                 },
                 {
                 "name" : "indicator-sessi",
                 "children":
                 [
-                {"name": "indicator-sessi", "size":  223, "pid": 2253}
+                {"name": "indicator-sessi", "size": 0, "pid": 2253}
                 ]
                 },
                 {
                 "name" : "indicator-appli",
                 "children":
                 [
-                {"name": "indicator-appli", "size":  71, "pid": 2269}
+                {"name": "indicator-appli", "size": 0, "pid": 2269}
                 ]
                 },
                 {
                 "name" : "evolution-sourc",
                 "children":
                 [
-                {"name": "evolution-sourc", "size":  192, "pid": 2285}
+                {"name": "evolution-sourc", "size": 0, "pid": 2285}
                 ]
                 },
                 {
                 "name" : "notify-osd",
                 "children":
                 [
-                {"name": "notify-osd", "size":  106, "pid": 2286}
+                {"name": "notify-osd", "size": 0, "pid": 2286}
                 ]
                 },
                 {
                 "name" : "gvfs-udisks2-vo",
                 "children":
                 [
-                {"name": "gvfs-udisks2-vo", "size":  93, "pid": 2323}
+                {"name": "gvfs-udisks2-vo", "size": 0, "pid": 2323}
                 ]
                 },
                 {
                 "name" : "gconfd-2",
                 "children":
                 [
-                {"name": "gconfd-2", "size":  14, "pid": 2336}
+                {"name": "gconfd-2", "size": 0, "pid": 2336}
                 ]
                 },
                 {
                 "name" : "gvfs-gphoto2-vo",
                 "children":
                 [
-                {"name": "gvfs-gphoto2-vo", "size":  53, "pid": 2349}
+                {"name": "gvfs-gphoto2-vo", "size": 0, "pid": 2349}
                 ]
                 },
                 {
                 "name" : "gvfs-mtp-volume",
                 "children":
                 [
-                {"name": "gvfs-mtp-volume", "size":  50, "pid": 2358}
+                {"name": "gvfs-mtp-volume", "size": 0, "pid": 2358}
                 ]
                 },
                 {
                 "name" : "gvfs-afc-volume",
                 "children":
                 [
-                {"name": "gvfs-afc-volume", "size":  71, "pid": 2362}
+                {"name": "gvfs-afc-volume", "size": 0, "pid": 2362}
                 ]
                 },
                 {
                 "name" : "evolution-calen",
                 "children":
                 [
-                {"name": "evolution-calen", "size":  268, "pid": 2372}
+                {"name": "evolution-calen", "size": 0, "pid": 2372}
                 ]
                 },
                 {
                 "name" : "gvfsd-burn",
                 "children":
                 [
-                {"name": "gvfsd-burn", "size":  67, "pid": 2383}
+                {"name": "gvfsd-burn", "size": 0, "pid": 2383}
                 ]
                 },
                 {
                 "name" : "gvfsd-trash",
                 "children":
                 [
-                {"name": "gvfsd-trash", "size":  163, "pid": 2395}
+                {"name": "gvfsd-trash", "size": 0, "pid": 2395}
                 ]
                 },
                 {
                 "name" : "mission-control",
                 "children":
                 [
-                {"name": "mission-control", "size":  80, "pid": 2425}
+                {"name": "mission-control", "size": 0, "pid": 2425}
                 ]
                 },
                 {
                 "name" : "zeitgeist-daemo",
                 "children":
                 [
-                {"name": "zeitgeist-daemo", "size":  87, "pid": 2439}
+                {"name": "zeitgeist-daemo", "size": 0, "pid": 2439}
                 ]
                 },
                 {
                 "name" : "zeitgeist-fts",
                 "children":
                 [
-                {"name": "zeitgeist-fts", "size":  64, "pid": 2446}
+                {"name": "zeitgeist-fts", "size": 0, "pid": 2446}
 ,
                     {
                     "name" : "cat",
                     "children":
                     [
-                    {"name": "cat", "size":  2, "pid": 2460}
+                    {"name": "cat", "size": 0, "pid": 2460}
                     ]
                     }                ]
                 },
@@ -698,76 +754,76 @@
                 "name" : "gvfsd-metadata",
                 "children":
                 [
-                {"name": "gvfsd-metadata", "size":  31, "pid": 2491}
+                {"name": "gvfsd-metadata", "size": 0, "pid": 2491}
                 ]
                 },
                 {
                 "name" : "dropbox",
                 "children":
                 [
-                {"name": "dropbox", "size":  494, "pid": 2540}
-                ]
-                },
-                {
-                "name" : "unity-scope-hom",
-                "children":
-                [
-                {"name": "unity-scope-hom", "size":  169, "pid": 9227}
-                ]
-                },
-                {
-                "name" : "unity-scope-loa",
-                "children":
-                [
-                {"name": "unity-scope-loa", "size":  148, "pid": 9242}
-                ]
-                },
-                {
-                "name" : "unity-files-dae",
-                "children":
-                [
-                {"name": "unity-files-dae", "size":  197, "pid": 9244}
+                {"name": "dropbox", "size": 0, "pid": 2540}
                 ]
                 },
                 {
                 "name" : "gedit",
                 "children":
                 [
-                {"name": "gedit", "size":  177, "pid": 18891}
+                {"name": "gedit", "size": 0, "pid": 6072}
+                ]
+                },
+                {
+                "name" : "unity-scope-hom",
+                "children":
+                [
+                {"name": "unity-scope-hom", "size": 0, "pid": 9227}
+                ]
+                },
+                {
+                "name" : "unity-scope-loa",
+                "children":
+                [
+                {"name": "unity-scope-loa", "size": 0, "pid": 9242}
+                ]
+                },
+                {
+                "name" : "unity-files-dae",
+                "children":
+                [
+                {"name": "unity-files-dae", "size": 0, "pid": 9244}
                 ]
                 },
                 {
                 "name" : "unity-music-dae",
                 "children":
                 [
-                {"name": "unity-music-dae", "size":  86, "pid": 20126}
+                {"name": "unity-music-dae", "size": 0, "pid": 20126}
                 ]
                 },
                 {
                 "name" : "gvfsd-http",
                 "children":
                 [
-                {"name": "gvfsd-http", "size":  289, "pid": 20160}
+                {"name": "gvfsd-http", "size": 0, "pid": 20160}
                 ]
                 },
                 {
                 "name" : "gnome-terminal",
                 "children":
                 [
-                {"name": "gnome-terminal", "size":  145, "pid": 22477}
+                {"name": "gnome-terminal", "size": 0, "pid": 22477}
 ,
                     {
                     "name" : "gnome-pty-helpe",
                     "children":
                     [
-                    {"name": "gnome-pty-helpe", "size":  3, "pid": 22483}
+                    {"name": "gnome-pty-helpe", "size": 0, "pid": 22483}
                     ]
                     },
                     {
                     "name" : "bash",
                     "children":
                     [
-                    {"name": "bash", "size":  6, "pid": 22484}
+                    {"name": "bash", "size": 0, "pid": 22484}
                     ]
                     }                ]
                 },
@@ -775,33 +831,33 @@
                 "name" : "evince",
                 "children":
                 [
-                {"name": "evince", "size":  336, "pid": 24086}
+                {"name": "evince", "size": 0, "pid": 24086}
                 ]
                 },
                 {
                 "name" : "evinced",
                 "children":
                 [
-                {"name": "evinced", "size":  26, "pid": 24093}
+                {"name": "evinced", "size": 0, "pid": 24093}
                 ]
                 },
                 {
                 "name" : "qtcreator",
                 "children":
                 [
-                {"name": "qtcreator", "size":  418, "pid": 24851}
+                {"name": "qtcreator", "size": 0, "pid": 24851}
 ,
                     {
                     "name" : "GerenciadorTare",
                     "children":
                     [
-                    {"name": "GerenciadorTare", "size":  571, "pid": 27062}
+                    {"name": "GerenciadorTare", "size": 0, "pid": 6100}
 ,
                         {
                         "name" : "",
                         "children":
                         [
-                        {"name": "", "size":  32, "pid": 29873}
+                        {"name": "", "size": 0, "pid": 8542}
                         ]
                         }                    ]
                     }                ]
@@ -813,104 +869,104 @@
     "name" : "kerneloops",
     "children":
     [
-    {"name": "kerneloops", "size":  9, "pid": 1240}
+    {"name": "kerneloops", "size": 0, "pid": 1240}
     ]
     },
     {
     "name" : "accounts-daemon",
     "children":
     [
-    {"name": "accounts-daemon", "size":  71, "pid": 1246}
+    {"name": "accounts-daemon", "size": 0, "pid": 1246}
     ]
     },
     {
     "name" : "getty",
     "children":
     [
-    {"name": "getty", "size":  5, "pid": 1300}
+    {"name": "getty", "size": 0, "pid": 1300}
     ]
     },
     {
     "name" : "upowerd",
     "children":
     [
-    {"name": "upowerd", "size":  76, "pid": 1426}
+    {"name": "upowerd", "size": 0, "pid": 1426}
     ]
     },
     {
     "name" : "rtkit-daemon",
     "children":
     [
-    {"name": "rtkit-daemon", "size":  42, "pid": 1448}
+    {"name": "rtkit-daemon", "size": 0, "pid": 1448}
     ]
     },
     {
     "name" : "colord",
     "children":
     [
-    {"name": "colord", "size":  75, "pid": 1609}
+    {"name": "colord", "size": 0, "pid": 1609}
     ]
     },
     {
     "name" : "gnome-keyring-d",
     "children":
     [
-    {"name": "gnome-keyring-d", "size":  112, "pid": 1769}
+    {"name": "gnome-keyring-d", "size": 0, "pid": 1769}
     ]
     },
     {
     "name" : "wineserver",
     "children":
     [
-    {"name": "wineserver", "size":  1, "pid": 2012}
+    {"name": "wineserver", "size": 0, "pid": 2012}
     ]
     },
     {
     "name" : "services.exe",
     "children":
     [
-    {"name": "services.exe", "size":  661, "pid": 2026}
+    {"name": "services.exe", "size": 0, "pid": 2026}
     ]
     },
     {
     "name" : "udisksd",
     "children":
     [
-    {"name": "udisksd", "size":  109, "pid": 2339}
+    {"name": "udisksd", "size": 0, "pid": 2339}
     ]
     },
     {
     "name" : "explorer.exe",
     "children":
     [
-    {"name": "explorer.exe", "size":  664, "pid": 2548}
+    {"name": "explorer.exe", "size": 0, "pid": 2548}
     ]
     },
     {
     "name" : "wpa_supplicant",
     "children":
     [
-    {"name": "wpa_supplicant", "size":  7, "pid": 3026}
+    {"name": "wpa_supplicant", "size": 0, "pid": 3026}
     ]
     },
     {
     "name" : "mount.ntfs",
     "children":
     [
-    {"name": "mount.ntfs", "size":  3, "pid": 4693}
+    {"name": "mount.ntfs", "size": 0, "pid": 4693}
     ]
     },
     {
     "name" : "cupsd",
     "children":
     [
-    {"name": "cupsd", "size":  19, "pid": 5285}
+    {"name": "cupsd", "size": 0, "pid": 5285}
 ,
         {
         "name" : "dbus",
         "children":
         [
-        {"name": "dbus", "size":  15, "pid": 5288}
+        {"name": "dbus", "size": 0, "pid": 5288}
         ]
         }    ]
     }]

@@ -25,6 +25,8 @@ using namespace std;
 
 ofstream json;
 
+
+
 bool is_number(const std::string& s) {
     return !s.empty() && std::find_if(s.begin(),
         s.end(), [](char c) { return !std::isdigit(c); }) == s.end();
@@ -131,6 +133,23 @@ string getPName(int pid)
     return retorno;
 }
 
+
+
+int memorybypid(int pid)
+{
+    stringstream ss;
+    ss << "/proc/" << pid << "/statm";
+
+    ifstream myfile;
+    myfile.open(ss.str().c_str());
+
+    int retorno;
+
+    myfile >> retorno;
+
+    return retorno;
+}
+
 void recursiveJSon(int processo,int nivel)
 {
     vector<int> children = listChildren(processo);
@@ -139,7 +158,7 @@ void recursiveJSon(int processo,int nivel)
     json<<string(nivel*4,' ')<<"\"name\" : \""<< getPName(processo) <<"\","<<endl;
     json<<string(nivel*4,' ')<<"\"children\":"<<endl;
     json<<string(nivel*4,' ')<<"["<<endl;
-    json<<string(nivel*4,' ')<<"{\"name\": \""<<getPName(processo)<<"\", \"size\": 100, \"pid\": "<<processo<<"}"<<endl;
+    json<<string(nivel*4,' ')<<"{\"name\": \""<<getPName(processo)<<"\", \"size\": "<<memorybypid(processo)/1000<<", \"pid\": "<<processo<<"}"<<endl;
 
     for(auto x:children)
     {
@@ -156,6 +175,7 @@ void recursiveJSon(int processo,int nivel)
 
 
 
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -168,6 +188,7 @@ int main(int argc, char *argv[])
     json.open ("/home/jordao/operationalsystems/teste/processos.json");
     recursiveJSon(1,0);
     json.close();
+
 
 
     //for(auto x : listChildren("2"))

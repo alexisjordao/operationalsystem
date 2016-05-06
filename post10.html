@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Operational Systems Blog</title>
+  <link rel="stylesheet" href="files/css.css">
+  <link rel="stylesheet" href="files/style.css">
+  </head>
+<body>
+  <div class="container">
+    <header class="masthead">
+  <h1 class="masthead-title--small">
+    <a href="http://alexisjordao.github.io/operationalsystems/">Operational systems</a>
+  </h1>
+</header>      
+<div class="content post">
+  <h1 class="post-title">Análise de desempenho</h1>
+  <div class="post-date">
+    <time>6 May 2016</time>
+  </div>
+
+
+<p> Esta análise consiste em criar um vetor float com 100*1000*1000 (100 milhões) elementos, com valores aleatórios entre -1 e 1. Em seguida iremos criar 3 funções, a primeira com o somatório de todos os valores  do vetor, a segunda com o somatório de todos os valores sin do vetor e a última com o somatório de todos os valores log do vetor.
+ </p>
+
+<p> Para cada uma das funções, devemos analisar da seguinte forma: </p>
+
+<ul>
+<li><b>Caso 1</b>: executar em uma thread e apenas um core;</li>
+<li><b>Caso 2</b>: executar duas instâncias da função em duas threads e em cores diferentes;
+</li>
+<li><b>Caso 3</b>: executar duas instâncias da função em duas threads e em um mesmo core.</li>
+</ul>
+
+<p>Para realizamos medições das execuções sobre:
+</p>
+
+<ul>
+<li>Tempo para criação do vetor e execução das funções.
+</li>
+</ul>
+
+
+<p>Referências:</p>
+<p>Para as medições de tempo, nosso trabalho foi baseado no seguinte código: <a href="https://goo.gl/UAsyvk">https://goo.gl/UAsyvk</a> </p>
+
+
+</div>
+
+  </div>
+
+
+</body></html>

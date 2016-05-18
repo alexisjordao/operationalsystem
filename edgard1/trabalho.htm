@@ -1,0 +1,171 @@
+<html>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+</head>
+
+<body>
+<canvas id="c" width="800" height="500"></canvas>
+
+<script langauage="javascript">
+	<!--
+
+altura_retangulos = 0;
+largura_retangulos = 0;
+
+vetor_mapeamento = [];
+
+	function draw_single_level()
+	{
+		ctx = document.getElementById("c").getContext("2d");
+		ctx.clearRect(0, 0, 800, 500);
+		ctx.beginPath();
+
+		calcular_vetor_mapeamento();		
+
+
+		draw_memoria_fisica(ctx);
+		draw_memoria_logica(ctx);
+
+		put_numbers();
+
+		ctx.stroke();
+	}
+
+	function put_numbers()
+	{
+		maximo = $('#fisica').val()*1024*1024;
+		n1 = Math.floor((Math.random() * (maximo)));
+		n2 = Math.floor((Math.random() * (maximo)));
+		n3 = Math.floor((Math.random() * (maximo)));
+
+		p1 = Math.floor(n1/($('#paginas').val() * 1024 ));
+		p2 = Math.floor(n2/($('#paginas').val() * 1024 ));
+		p3 = Math.floor(n3/($('#paginas').val() * 1024 ));
+
+		d1 =  vetor_mapeamento[p1] == -1 ? "-" : n1 % ($('#paginas').val() * 1024 );
+		d2 =  vetor_mapeamento[p2] == -1 ? "-" : n2 % ($('#paginas').val() * 1024 );
+		d3 =  vetor_mapeamento[p3] == -1 ? "-" : n3 % ($('#paginas').val() * 1024 );
+
+		p1 = vetor_mapeamento[p1] == -1 ? "Pagefault": vetor_mapeamento[p1];
+		p2 = vetor_mapeamento[p2] == -1 ? "Pagefault": vetor_mapeamento[p2];
+		p3 = vetor_mapeamento[p3] == -1 ? "Pagefault": vetor_mapeamento[p3];
+
+
+
+		$('#n1').html(n1);
+		$('#n2').html(n2);
+		$('#n3').html(n3);
+
+		$('#n1d').html(d1);
+		$('#n2d').html(d2);
+		$('#n3d').html(d3);
+
+		$('#n1p').html(p1);
+		$('#n2p').html(p2);
+		$('#n3p').html(p3);
+
+
+	}
+
+	function calcular_vetor_mapeamento()
+	{
+		quantidade_fisica = $('#fisica').val()*1024 / $('#paginas').val();
+		quantidade_logica = $('#logica').val()*1024 / $('#paginas').val();
+
+		for(i=0;i<quantidade_fisica;i++) vetor_mapeamento[i] = -1;
+		for(i=0;i<quantidade_logica;i++) 
+		{
+			k = Math.floor((Math.random() * (quantidade_fisica)));
+			if(vetor_mapeamento[k]!=-1){i--;continue;}
+			vetor_mapeamento[k]=i;
+		}
+
+	
+
+	}
+
+	function draw_memoria_fisica(context)
+	{
+		quantidade_de_paginas = $('#fisica').val()*1024 / $('#paginas').val();
+		altura_retangulos = (500 - quantidade_de_paginas*3)/quantidade_de_paginas;
+		largura_retangulos = altura_retangulos * 1.4;
+
+		tamanho_da_pagina = $('#fisica').val()*1024 / quantidade_de_paginas;
+
+		y_retangulo=0;
+		tamanho_retangulo=0;
+		for(i=0;i<quantidade_de_paginas;i++)
+		{
+			text = vetor_mapeamento[i] == -1 ? 'x' : vetor_mapeamento[i]  ;
+			draw_square(context, tamanho_retangulo+"K - "+(tamanho_retangulo+tamanho_da_pagina)+"K",text, 120, y_retangulo, largura_retangulos, altura_retangulos)
+			if(vetor_mapeamento[i]!=-1)
+				canvas_arrow(context, 120+largura_retangulos, y_retangulo + altura_retangulos/2, 400, vetor_mapeamento[i]*(altura_retangulos+3)+altura_retangulos/2)
+			y_retangulo+=altura_retangulos+3;
+			tamanho_retangulo+=tamanho_da_pagina;
+		}
+
+	}
+
+
+	function draw_memoria_logica(context)
+	{
+		quantidade_de_paginas = $('#logica').val()*1024 / $('#paginas').val();
+
+		tamanho_da_pagina = $('#logica').val()*1024 / quantidade_de_paginas;
+
+		y_retangulo=0;
+		tamanho_retangulo=0;
+		for(i=0;i<quantidade_de_paginas;i++)
+		{
+			draw_square(context, tamanho_retangulo+"K - "+(tamanho_retangulo+tamanho_da_pagina)+"K","", 400, y_retangulo, largura_retangulos, altura_retangulos)
+			y_retangulo+=altura_retangulos+3;
+			tamanho_retangulo+=tamanho_da_pagina;
+		}
+	}
+	
+	function canvas_arrow(context, fromx, fromy, tox, toy){
+		var headlen = 10;
+		var dx = tox-fromx;
+		var dy = toy-fromy;
+		var angle = Math.atan2(dy,dx);	
+		context.moveTo(fromx, fromy);
+		context.lineTo(tox, toy);
+		context.lineTo(tox-headlen*Math.cos(angle-Math.PI/6),toy-headlen*Math.sin(angle-Math.PI/6));
+		context.moveTo(tox, toy);
+		context.lineTo(tox-headlen*Math.cos(angle+Math.PI/6),toy-headlen*Math.sin(angle+Math.PI/6));
+	}
+
+	function draw_square(context, legend,text, fromx, fromy, width, height) {
+  		context.fillStyle = "yellow";
+   		context.fillRect(fromx, fromy, width, height);
+  		context.fillStyle = "black";
+		context.font = "15px Arial";
+		context.fillText(text,fromx+width/2,fromy+height/2);
+		context.fillText(legend,fromx-110,fromy+height/2);
+	}
+
+	-->
+</script>
+
+
+<br/>
+<br/>
+
+
+Memoria logica: <input id="fisica" value="4"/> GB		<br/>
+Memoria fisica: <input id="logica"  value="1"/> GB		<br/>
+Tamanhos da pagina: <input id="paginas"  value="512"/> KB	<br/>
+
+<br/><br/>
+
+Numero <b><span id="n1"></span></b> encontrado na pagina <b><span id="n1p"></span></b> e deslocamento <b><span id="n1d"></span></b>. </br>
+Numero <b><span id="n2"></span></b> encontrado na pagina <b><span id="n2p"></span></b> e deslocamento <b><span id="n2d"></span></b>. </br>
+Numero <b><span id="n3"></span></b> encontrado na pagina <b><span id="n3p"></span></b> e deslocamento <b><span id="n3d"></span></b>. </br>
+
+<br/><br/>
+
+<button onclick="draw_single_level()">Gerar</button>
+<button onclick="alert("Ainda nao implementado.")">Gerar Multinivel</button>
+
+</body></html>

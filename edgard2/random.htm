@@ -1,0 +1,184 @@
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<style>
+#container {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    border: 1px solid #000;
+}
+#container div {
+    position: absolute;
+    width: 2px;
+    height: 5px;
+    background: #93DB70;
+}
+</style>
+
+<script>
+
+LOGICAS = 64;
+
+count_ac=0;
+valor_anterior=0;
+
+function fireAccess()
+{
+	sc_run();
+	nfu_run();
+	$('#ac').html(count_ac++);
+    atualizarGrafico();
+	$('#access').html("<br>"+valor_anterior+$('#access').html().slice(0,250));
+	valor_anterior += bell();
+	if(valor_anterior<0) valor_anterior+=1048576;
+	if(valor_anterior>1048576) valor_anterior-=1048576;
+	valor_anterior = vicio1();
+	valor_anterior = vicio2();
+}
+
+function bell() {
+    return Math.floor((((Math.random() + Math.random() + Math.random() + Math.random() + Math.random() + Math.random()) - 3) / 3)*350000);
+}
+
+function vicio1()
+{
+	r = Math.floor((Math.random() * 10) + 1);
+	if(r<5) return parseInt((123456+valor_anterior)/2);
+	return valor_anterior;
+}
+
+function vicio2()
+{
+	r = Math.floor((Math.random() * 10) + 1);
+	if(r==1) return parseInt((678123+valor_anterior)/2);
+	return valor_anterior;
+}
+
+var numbers = [];
+for (var i = 0; i < 400; i++) numbers[i] = 0;
+
+function atualizarGrafico()
+{
+	v = parseInt(valor_anterior/2622);
+   	$('#container').append($('<div>').css({
+        left: v+'px',
+        bottom: numbers[v]+'px'
+    }));
+	numbers[v]+=5; 
+}
+
+function Reference(virtual,r) {
+    this.virtual=virtual;
+    this.r=r;
+}
+
+var sc_p = 0; // quantidade de page faults
+
+var sc_q = []; // queue, 32 paginas na queue, q[pagina logica] = pagina virtual
+for (var i = 0; i < LOGICAS; i++) sc_q.push(new Reference(i,0));
+
+var sc_r = [];
+function zerar_sc()
+{
+	for (var i = 0; i < LOGICAS; i++) sc_q[i].r = 0;
+}
+
+function sc_run()
+{
+	v = parseInt(valor_anterior/4098);
+	if(sc_b(v)==-1) sc_pf();
+	$('#sc').html(sc_p);
+}
+
+function sc_pf()
+{
+	v = parseInt(valor_anterior/4098);
+	sc_p++;
+
+	while(true)
+	{
+		var i = sc_q.shift();
+		if(i.r==0)
+		{
+	       sc_q.push(new Reference(v,0));
+	       break;
+		}
+		else
+		{
+	       sc_q.push(new Reference(i.virtual,0));
+		}
+	}
+}
+
+function sc_b(b)
+{
+	for (var i = 0; i < LOGICAS; i++) if(sc_q[i].virtual == b) return i;
+	return -1;
+}
+
+//var i = queue.shift(); // queue is now [5]
+//alert(i);
+
+zerar_sc();
+setInterval(zerar_sc, 2000);
+
+
+nfu_p =0;
+nfu_c = [];
+for (var i = 0; i < LOGICAS; i++) nfu_c.push(new Reference(i,0));
+
+
+function nfu_run()
+{
+	v = parseInt(valor_anterior/4098);
+	l = nfu_b(v);
+	if(l==-1) nfu_pf();
+	else nfu_c[l].r++;
+}
+
+function nfu_b(b)
+{
+	for (var i = 0; i < LOGICAS; i++) if(nfu_c[i].virtual == b) return i;
+	return -1;
+}
+
+function nfu_pf()
+{
+	v = parseInt(valor_anterior/4098);
+    menor=10000000;indice=0;
+    for (var i = 0; i < LOGICAS; i++) if(nfu_c.r<menor) {menor=nfu_c.r;indice=i;}
+    nfu_c[indice]=new Reference(v,0);
+    $('#nfu').html(++nfu_p);
+}
+
+
+
+
+</script>
+</head>
+
+<b>Acessos à memória: </b><br/>
+<div id="access" style="width:200px;height:200px;overflow:auto;">
+
+</div>
+
+<div id="container"></div>
+
+
+
+<p><b>Memória:</b> 1 MB | <b>Tamanho por página:</b> 4 KB | <b>Carregadas/totais</b> 32/256.</p>
+
+<p><b>Acessos: </b> <span id="ac"></span></p>
+
+<p><b>Algoritmo de SC: </b></p>
+
+<span style="color:red;"><b>Pagefault: <span id="sc"></span></b></span>
+
+<p><b>Algoritmo de NFU: </b></p>
+
+<span style="color:red;"><b>Pagefault: <span id="nfu"></span></b></span>
+
+
+<script>
+setInterval(fireAccess, 100);
+</script>
